@@ -18,7 +18,7 @@ func RetrieveHostnames(maxIPs int, result ipconfig.Configuration) http.HandlerFu
 	}
 }
 
-func RefreshDataSet(c ipconfig.Configuration, ipl ipconfig.IPList) http.HandlerFunc {
+func RefreshDataSet(c ipconfig.Configuration, ipl ipconfig.IPListI) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		log.Println("received required Refresh Data Set")
 		if !c.IsEmpty() {

@@ -1,5 +1,7 @@
 package ipconfig
 
+var _ IPListI = (*IPConfigs)(nil)
+
 type IPConfigs struct {
 	IpConfigList []*IPConfig
 }
@@ -21,4 +23,7 @@ func (c *IPConfigs) IsEmpty() bool {
 }
 func (c *IPConfigs) Clear() {
 	c.IpConfigList = make([]*IPConfig, 0)
+}
+func (c *IPConfigs) Size() int {
+	return len(c.GetIPList().IpConfigList)
 }

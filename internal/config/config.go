@@ -21,14 +21,14 @@ func LoadConfigThreshold() int {
 
 	return x
 }
-func LoadConfigIPConfiguration(c ipconfig.Configuration, ips ipconfig.IPList) (err error) {
+func LoadConfigIPConfiguration(c ipconfig.Configuration, ips ipconfig.IPListI) (err error) {
 	var (
 		jsonFile  *os.File
 		byteValue []byte
 		absPath   string
 	)
 
-	path := os.Getenv(constants.PATH)
+	path := os.Getenv(constants.DBPATH)
 	if path == "" {
 		path = constants.DEFAULTPATH
 	}

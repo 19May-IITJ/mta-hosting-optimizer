@@ -6,7 +6,6 @@ import (
 	"strconv"
 	"testing"
 
-	"mta2/commons/maps"
 	"mta2/internal/constants"
 	"mta2/pkg/ipconfig"
 
@@ -32,25 +31,25 @@ func TestLoadConfigThreshold(t *testing.T) {
 }
 func TestLoadConfigIPConfiguration(t *testing.T) {
 	// Create mock ipconfig.Configuration and ipconfig.IPList objects
-	mockConfig := maps.NewMap()
+	mockConfig := ipconfig.NewMap()
 	mockIPList := ipconfig.NewIPConfigList()
 
 	t.Run("Test with valid JSON file path", func(t *testing.T) {
-		os.Setenv(constants.PATH, "/Users/b0268986/mta2/mock/data/ipconfig.json")
-		defer os.Unsetenv(constants.PATH)
+		os.Setenv(constants.DBPATH, "/Users/b0268986/mta2/mock/data/ipconfig.json")
+		defer os.Unsetenv(constants.DBPATH)
 		err := LoadConfigIPConfiguration(mockConfig, mockIPList)
 		assert.NoError(t, err)
 	})
 
 	t.Run("Test with invalid JSON file", func(t *testing.T) {
-		os.Setenv(constants.PATH, "random/random")
-		defer os.Unsetenv(constants.PATH)
+		os.Setenv(constants.DBPATH, "random/random")
+		defer os.Unsetenv(constants.DBPATH)
 		err := LoadConfigIPConfiguration(mockConfig, mockIPList)
 		assert.Error(t, err)
 	})
 	t.Run("Test with empty env variable PATH", func(t *testing.T) {
-		os.Setenv(constants.PATH, "")
-		defer os.Unsetenv(constants.PATH)
+		os.Setenv(constants.DBPATH, "")
+		defer os.Unsetenv(constants.DBPATH)
 		err := LoadConfigIPConfiguration(mockConfig, mockIPList)
 		assert.NoError(t, err)
 	})

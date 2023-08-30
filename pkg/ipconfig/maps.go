@@ -1,12 +1,10 @@
-package maps
+package ipconfig
 
 import (
-	"mta2/pkg/ipconfig"
-
 	"github.com/pkg/errors"
 )
 
-var _ ipconfig.Configuration = (*RegisterMap)(nil)
+var _ Configuration = (*RegisterMap)(nil)
 
 type RegisterMap struct {
 	handlermap map[string]int

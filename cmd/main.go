@@ -2,7 +2,6 @@ package main
 
 import (
 	"log"
-	"mta2/commons/maps"
 	"mta2/internal/config"
 	"mta2/internal/handler"
 	"mta2/pkg/ipconfig"
@@ -13,7 +12,7 @@ import (
 
 func main() {
 	port := "8080"
-	result := maps.NewMap()
+	result := ipconfig.NewMap()
 	list := ipconfig.NewIPConfigList()
 	// Load configuration
 	x := config.LoadConfigThreshold()

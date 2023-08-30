@@ -11,9 +11,10 @@ type Configuration interface {
 	IsEmpty() bool
 }
 
-type IPList interface {
+type IPListI interface {
 	GetIPList() *IPConfigs
 	SetIPList([]*IPConfig)
 	IsEmpty() bool
 	Clear()
+	Size() int
 }
