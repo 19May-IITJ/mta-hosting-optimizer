@@ -38,7 +38,7 @@
   {
     "ipAddresses": "127.0.0.8",
     "hostname": "mta-prod-4",
-    "status": false
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.9",

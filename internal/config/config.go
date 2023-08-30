@@ -10,6 +10,7 @@ import (
 	"strconv"
 )
 
+// Load Config Threshold loads the MTA_THRESHOLD env variable default:1
 func LoadConfigThreshold() int {
 	defaultThreshold := 1
 
@@ -21,6 +22,8 @@ func LoadConfigThreshold() int {
 
 	return x
 }
+
+// Load Config IPConfiguration loads the IP configuration Data based on DBPATH env variable
 func LoadConfigIPConfiguration(c ipconfig.Configuration, ips ipconfig.IPListI) (err error) {
 	var (
 		jsonFile  *os.File
@@ -46,13 +49,13 @@ func LoadConfigIPConfiguration(c ipconfig.Configuration, ips ipconfig.IPListI) (
 		log.Printf("Error %v\n", err)
 		return err
 	}
-	list := ips.GetIPList().IpConfigList
+	list := ips.GetIPValues()
 	if err = decode(byteValue, &list); err == nil {
 		ips.SetIPList(list)
-		for _, ip := range ips.GetIPList().IpConfigList {
+		for _, ip := range ips.GetIPValues() {
 			c.Put(ip.Hostname, 0)
 		}
-		for _, ip := range ips.GetIPList().IpConfigList {
+		for _, ip := range ips.GetIPValues() {
 			if c.Contains(ip.Hostname) {
 				if ip.Status {
 					val, _ := c.GetValue(ip.Hostname)
@@ -73,6 +76,8 @@ func LoadConfigIPConfiguration(c ipconfig.Configuration, ips ipconfig.IPListI) (
 	}
 
 }
+
+// wrapper over Unmarshal JSON
 func decode(byteValue []byte, list *[]*ipconfig.IPConfig) error {
 	return json.Unmarshal(byteValue, &list)
 }

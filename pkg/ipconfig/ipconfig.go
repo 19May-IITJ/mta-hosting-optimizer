@@ -12,6 +12,7 @@ type IPConfig struct {
 
 var dataMutex sync.RWMutex
 
+// GetHostnamesWithMaxIPs checks which hostname has active MTA less than threshold value and return corresponding hostnames
 func GetHostnamesWithMaxIPs(maxIPs int, iplist Configuration) []string {
 	dataMutex.RLock()
 	defer dataMutex.RUnlock()

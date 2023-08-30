@@ -43,15 +43,23 @@ func (s *RegisterMap) RemoveKey(keys ...string) {
 		delete(s.handlermap, key)
 	}
 }
+
+// GetValues returns the underlying map
 func (s *RegisterMap) GetValues() map[string]int {
 	return s.handlermap
 }
+
+// Size returns the no. of entries in map
 func (s *RegisterMap) Size() int {
 	return len(s.handlermap)
 }
+
+// Flushes all the key in map
 func (s *RegisterMap) Clear() {
 	s.handlermap = make(map[string]int)
 }
+
+// Check whether the Map is empty or not
 func (s *RegisterMap) IsEmpty() bool {
 	return s.Size() == 0
 }

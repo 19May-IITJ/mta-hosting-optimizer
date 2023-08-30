@@ -9,6 +9,7 @@ import (
 	"net/http"
 )
 
+// Retrieve Hostnames handler return http handleFunc used to get inefficient hostnames having active no. of IP <= threshold value
 func RetrieveHostnames(maxIPs int, result ipconfig.Configuration) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		log.Println("received request Retrieve Hostnames")
@@ -19,6 +20,7 @@ func RetrieveHostnames(maxIPs int, result ipconfig.Configuration) http.HandlerFu
 	}
 }
 
+// Refresh DataSet handler return http handleFunc used to reload all ip & hostname data and active ip's under hostname
 func RefreshDataSet(c ipconfig.Configuration, ipl ipconfig.IPListI) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		log.Println("received request Refresh Data Set")
