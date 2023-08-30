@@ -1,0 +1,33 @@
+[
+  {
+    "ipAddresses": "127.0.0.1",
+    "hostname": "dummy_1",
+    "status": false
+  },
+
+  {
+    "ipAddresses": "127.0.0.2",
+    "hostname": "dummy_1",
+    "status": false
+  },
+  {
+    "ipAddresses": "127.0.0.3",
+    "hostname": "dummy_1",
+    "status": true
+  },
+  {
+    "ipAddresses": "127.0.0.4",
+    "hostname": "dummy_2",
+    "status": true
+  },
+  {
+    "ipAddresses": "127.0.0.5",
+    "hostname": "dummy_2",
+    "status": true
+  },
+  {
+    "ipAddresses": "127.0.0.6",
+    "hostname": "dummy_3",
+    "status": false
+  }
+]

@@ -35,10 +35,52 @@ func TestLoadConfigIPConfiguration(t *testing.T) {
 	mockIPList := ipconfig.NewIPConfigList()
 
 	t.Run("Test with valid JSON file path", func(t *testing.T) {
-		os.Setenv(constants.DBPATH, "/Users/b0268986/mta2/mock/data/ipconfig.json")
+		os.Setenv(constants.DBPATH, "/Users/b0268986/mta2/mock/test_data/ipconfig_test.json")
 		defer os.Unsetenv(constants.DBPATH)
 		err := LoadConfigIPConfiguration(mockConfig, mockIPList)
 		assert.NoError(t, err)
+		mockConfig_expected := ipconfig.NewMap()
+		mockIPList_expected := ipconfig.NewIPConfigList()
+		mockConfig_expected.Put("dummy_1", 1)
+		mockConfig_expected.Put("dummy_2", 2)
+		mockConfig_expected.Put("dummy_3", 0)
+		l := make([]*ipconfig.IPConfig, 0)
+		l = append(l,
+			&ipconfig.IPConfig{
+				Hostname:    "dummy_1",
+				IPAddresses: "127.0.0.1",
+				Status:      false,
+			},
+			&ipconfig.IPConfig{
+				Hostname:    "dummy_1",
+				IPAddresses: "127.0.0.2",
+				Status:      false,
+			},
+			&ipconfig.IPConfig{
+				Hostname:    "dummy_1",
+				IPAddresses: "127.0.0.3",
+				Status:      true,
+			},
+			&ipconfig.IPConfig{
+				Hostname:    "dummy_2",
+				IPAddresses: "127.0.0.4",
+				Status:      true,
+			},
+			&ipconfig.IPConfig{
+				Hostname:    "dummy_2",
+				IPAddresses: "127.0.0.5",
+				Status:      true,
+			},
+			&ipconfig.IPConfig{
+				Hostname:    "dummy_3",
+				IPAddresses: "127.0.0.6",
+				Status:      false,
+			},
+		)
+		mockIPList_expected.SetIPList(l)
+		assert.Equal(t, mockConfig_expected, mockConfig)
+		assert.Equal(t, mockIPList_expected, mockIPList)
+
 	})
 
 	t.Run("Test with invalid JSON file", func(t *testing.T) {

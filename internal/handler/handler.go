@@ -11,8 +11,9 @@ import (
 
 func RetrieveHostnames(maxIPs int, result ipconfig.Configuration) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		log.Println("received required Retrieve Hostnames")
+		log.Println("received request Retrieve Hostnames")
 		inefficientHostnames := ipconfig.GetHostnamesWithMaxIPs(maxIPs, result)
+		w.WriteHeader(http.StatusOK)
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(inefficientHostnames)
 	}
@@ -20,7 +21,7 @@ func RetrieveHostnames(maxIPs int, result ipconfig.Configuration) http.HandlerFu
 
 func RefreshDataSet(c ipconfig.Configuration, ipl ipconfig.IPListI) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		log.Println("received required Refresh Data Set")
+		log.Println("received request Refresh Data Set")
 		if !c.IsEmpty() {
 			c.Clear()
 		}

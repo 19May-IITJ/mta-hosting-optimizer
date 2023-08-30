@@ -50,6 +50,9 @@ func LoadConfigIPConfiguration(c ipconfig.Configuration, ips ipconfig.IPListI) (
 	if err = decode(byteValue, &list); err == nil {
 		ips.SetIPList(list)
 		for _, ip := range ips.GetIPList().IpConfigList {
+			c.Put(ip.Hostname, 0)
+		}
+		for _, ip := range ips.GetIPList().IpConfigList {
 			if c.Contains(ip.Hostname) {
 				if ip.Status {
 					val, _ := c.GetValue(ip.Hostname)

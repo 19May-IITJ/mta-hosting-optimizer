@@ -6,42 +6,42 @@
   },
 
   {
-    "ipAddresses": "127.0.0.1",
+    "ipAddresses": "127.0.0.2",
     "hostname": "mta-prod-1",
     "status": false
   },
   {
-    "ipAddresses": "127.0.0.1",
+    "ipAddresses": "127.0.0.3",
     "hostname": "mta-prod-1",
     "status": true
   },
   {
-    "ipAddresses": "127.0.0.1",
+    "ipAddresses": "127.0.0.4",
     "hostname": "mta-prod-2",
     "status": true
   },
   {
-    "ipAddresses": "127.0.0.1",
+    "ipAddresses": "127.0.0.5",
     "hostname": "mta-prod-2",
     "status": true
   },
   {
-    "ipAddresses": "127.0.0.1",
+    "ipAddresses": "127.0.0.6",
     "hostname": "mta-prod-3",
     "status": false
   },
   {
-    "ipAddresses": "127.0.0.1",
+    "ipAddresses": "127.0.0.7",
     "hostname": "mta-prod-3",
     "status": true
   },
   {
-    "ipAddresses": "127.0.0.1",
+    "ipAddresses": "127.0.0.8",
     "hostname": "mta-prod-4",
-    "status": true
+    "status": false
   },
   {
-    "ipAddresses": "127.0.0.1",
+    "ipAddresses": "127.0.0.9",
     "hostname": "mta-prod-4",
     "status": true
   }
