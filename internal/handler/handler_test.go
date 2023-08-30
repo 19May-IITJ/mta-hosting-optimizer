@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"context"
 	"encoding/json"
 	"mta2/internal/constants"
 	"mta2/pkg/ipconfig"
@@ -9,6 +10,7 @@ import (
 	"os"
 	"sort"
 	"testing"
+	"time"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -99,6 +101,17 @@ func TestRefreshDataSet(t *testing.T) {
 		handler.ServeHTTP(rr, req)
 		assert.Equal(t, rr.Code, http.StatusExpectationFailed)
 	})
+	t.Run("Timeout Test for Refersh Data Set", func(t *testing.T) {
+		ctx, cancel := context.WithTimeout(req.Context(), 0*time.Second)
+		defer cancel()
+		req = req.WithContext(ctx)
+		rr := httptest.NewRecorder()
+		os.Setenv(constants.DBPATH, "/Users/b0268986/mta2/mock/test_data/ipconfig_test.json")
+		defer os.Unsetenv(constants.DBPATH)
+		handler := http.HandlerFunc(RefreshDataSet(mockmap, mocklist))
+		handler.ServeHTTP(rr, req)
+		assert.Equal(t, rr.Code, http.StatusRequestTimeout)
+	})
 }
 
 // test to check possible positive & negative flow Retrieve Hostnames API
@@ -118,19 +131,30 @@ func TestRetrieveHostnames(t *testing.T) {
 	mockmap.Put("dummy_3", 0)
 	inefficientHostname_expected := make([]string, 0)
 	inefficientHostname_expected = append(inefficientHostname_expected, "dummy_1", "dummy_3")
-	rr := httptest.NewRecorder()
-	handler := http.HandlerFunc(RetrieveHostnames(threshold, mockmap))
+	t.Run("Positive Test for Refersh Data Set", func(t *testing.T) {
+		rr := httptest.NewRecorder()
+		handler := http.HandlerFunc(RetrieveHostnames(threshold, mockmap))
 
-	handler.ServeHTTP(rr, req)
-	assert.Equal(t, rr.Code, http.StatusOK)
-	var response []string
-	json.Unmarshal(rr.Body.Bytes(), &response)
-	sort.Slice(response, func(p, q int) bool {
-		return response[p] < response[q]
+		handler.ServeHTTP(rr, req)
+		assert.Equal(t, rr.Code, http.StatusOK)
+		var response []string
+		json.Unmarshal(rr.Body.Bytes(), &response)
+		sort.Slice(response, func(p, q int) bool {
+			return response[p] < response[q]
+		})
+		assert.Equal(t, inefficientHostname_expected, response)
+		// if status := rr.Code; status != http.StatusOK {
+		// 	t.Errorf("handler returned wrong status code: got %v want %v",
+		// 		status, http.StatusOK)
+		// }
 	})
-	assert.Equal(t, inefficientHostname_expected, response)
-	// if status := rr.Code; status != http.StatusOK {
-	// 	t.Errorf("handler returned wrong status code: got %v want %v",
-	// 		status, http.StatusOK)
-	// }
+	t.Run("Timeout Test for Refersh Data Set", func(t *testing.T) {
+		ctx, cancel := context.WithTimeout(req.Context(), 0*time.Second)
+		defer cancel()
+		req = req.WithContext(ctx)
+		rr := httptest.NewRecorder()
+		handler := http.HandlerFunc(RetrieveHostnames(threshold, mockmap))
+		handler.ServeHTTP(rr, req)
+		assert.Equal(t, rr.Code, http.StatusRequestTimeout)
+	})
 }
