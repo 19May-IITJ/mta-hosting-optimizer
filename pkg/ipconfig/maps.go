@@ -55,28 +55,3 @@ func (s *RegisterMap) Clear() {
 func (s *RegisterMap) IsEmpty() bool {
 	return s.Size() == 0
 }
-
-// func (s *RegisterMap) GetRandomValue() (value int) {
-// 	if !s.IsEmpty() {
-// 		random := rand.Intn(s.Size())
-// 		for _, val := range s.handlermap {
-// 			random--
-// 			if random == 0 {
-// 				return val
-// 			}
-// 		}
-// 		return
-
-// 	}
-// 	return
-// }
-
-// func (s *RegisterMap) Copy() RegisterMap {
-// 	new := NewMap()
-// 	for key, val := range s.GetValues() {
-// 		new.Put(key, val)
-// 	}
-// 	return *new
-// }
-
-// func (s *RegisterMap)
