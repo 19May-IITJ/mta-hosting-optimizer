@@ -5,7 +5,7 @@ Service that uncovers the inefficient servers (hostname) hosting only few active
 
 ## Table of Contents
 
-- [Introduction]
+- [Introduction](#introduction)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
