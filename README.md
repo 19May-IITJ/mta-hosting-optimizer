@@ -31,5 +31,6 @@ Service that uncovers the inefficient servers (hostname) hosting only few active
 
 ## Usage
 
-    Please hit the localhost:8080 on your local for with endpoints /hostname -> for uncovering server's hostname having MTAs hosted less than the threshold provided in env varibale MTA_THRESHOLD.
+    Please hit the localhost:8080 on your local for with endpoints /hostname -> for uncovering server's hostname 
+    having MTAs hosted less than the threshold provided in env varibale MTA_THRESHOLD.
     Also you can hit /refresh to refresh the data set.
