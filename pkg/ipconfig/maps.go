@@ -1,12 +1,10 @@
-package maps
+package ipconfig
 
 import (
-	"mta2/pkg/ipconfig"
-
 	"github.com/pkg/errors"
 )
 
-var _ ipconfig.Configuration = (*RegisterMap)(nil)
+var _ Configuration = (*RegisterMap)(nil)
 
 type RegisterMap struct {
 	handlermap map[string]int
@@ -45,40 +43,23 @@ func (s *RegisterMap) RemoveKey(keys ...string) {
 		delete(s.handlermap, key)
 	}
 }
+
+// GetValues returns the underlying map
 func (s *RegisterMap) GetValues() map[string]int {
 	return s.handlermap
 }
+
+// Size returns the no. of entries in map
 func (s *RegisterMap) Size() int {
 	return len(s.handlermap)
 }
+
+// Flushes all the key in map
 func (s *RegisterMap) Clear() {
 	s.handlermap = make(map[string]int)
 }
+
+// Check whether the Map is empty or not
 func (s *RegisterMap) IsEmpty() bool {
 	return s.Size() == 0
 }
-
-// func (s *RegisterMap) GetRandomValue() (value int) {
-// 	if !s.IsEmpty() {
-// 		random := rand.Intn(s.Size())
-// 		for _, val := range s.handlermap {
-// 			random--
-// 			if random == 0 {
-// 				return val
-// 			}
-// 		}
-// 		return
-
-// 	}
-// 	return
-// }
-
-// func (s *RegisterMap) Copy() RegisterMap {
-// 	new := NewMap()
-// 	for key, val := range s.GetValues() {
-// 		new.Put(key, val)
-// 	}
-// 	return *new
-// }
-
-// func (s *RegisterMap)

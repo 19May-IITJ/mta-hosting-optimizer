@@ -2,18 +2,17 @@ package main
 
 import (
 	"log"
-	"mta2/commons/maps"
 	"mta2/internal/config"
 	"mta2/internal/handler"
 	"mta2/pkg/ipconfig"
 	"net/http"
 )
 
-// TODO - Context handling + Request ID generation
+// TODO -> Request ID generation
 
 func main() {
 	port := "8080"
-	result := maps.NewMap()
+	result := ipconfig.NewMap()
 	list := ipconfig.NewIPConfigList()
 	// Load configuration
 	x := config.LoadConfigThreshold()
