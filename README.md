@@ -12,11 +12,15 @@ Service that uncovers the inefficient servers (hostname) hosting only few active
 
 ## Introduction
 
-    Mail transfer agents (MTAs) each having a dedicated public IP address. These MTAs are hosted on the server having unique hostname. This application is used to uncover all those hostname/servers having number of MTAs less than the defined threshold value.
+    Mail transfer agents (MTAs) each having a dedicated public IP address.
+    These MTAs are hosted on the server having unique hostname.
+    This application is used to uncover all those hostname/servers having number of MTAs less than the defined threshold value.
 
 ## Features
 
-    It have two HTTP API, with endpoint named as /hostname and /refersh. With initial service up there is no need to refresh data for the first time, application do its of it's own. After that whenever you want you can refersh the data.
+    It have two HTTP API, with endpoint named as /hostname and /refersh.
+    With initial service up there is no need to refresh data for the first time, application do its of it's own.
+    After that whenever you want you can refersh the data.
 
 ## Installation
 
@@ -28,3 +32,4 @@ Service that uncovers the inefficient servers (hostname) hosting only few active
 ## Usage
 
     Please hit the localhost:8080 on your local for with endpoints /hostname -> for uncovering server's hostname having MTAs hosted less than the threshold provided in env varibale MTA_THRESHOLD.
+    Also you can hit /refresh to refresh the data set.
