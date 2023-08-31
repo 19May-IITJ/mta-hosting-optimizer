@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-// TODO - Context handling + Request ID generation
+// TODO -> Request ID generation
 
 func main() {
 	port := "8080"
