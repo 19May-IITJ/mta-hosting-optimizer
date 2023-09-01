@@ -1,4 +1,4 @@
-package config
+package loader
 
 import (
 	"math/rand"
@@ -41,37 +41,37 @@ func TestLoadConfigIPConfiguration(t *testing.T) {
 		assert.NoError(t, err)
 		mockConfig_expected := ipconfig.NewMap()
 		mockIPList_expected := ipconfig.NewIPConfigList()
-		mockConfig_expected.Put("dummy_1", 1)
+		mockConfig_expected.Put("dummy_1", &i)
 		mockConfig_expected.Put("dummy_2", 2)
 		mockConfig_expected.Put("dummy_3", 0)
-		l := make([]*ipconfig.IPConfig, 0)
+		l := make([]*ipconfig.IPConfigData, 0)
 		l = append(l,
-			&ipconfig.IPConfig{
+			&ipconfig.IPConfigData{
 				Hostname:    "dummy_1",
 				IPAddresses: "127.0.0.1",
 				Status:      false,
 			},
-			&ipconfig.IPConfig{
+			&ipconfig.IPConfigData{
 				Hostname:    "dummy_1",
 				IPAddresses: "127.0.0.2",
 				Status:      false,
 			},
-			&ipconfig.IPConfig{
+			&ipconfig.IPConfigData{
 				Hostname:    "dummy_1",
 				IPAddresses: "127.0.0.3",
 				Status:      true,
 			},
-			&ipconfig.IPConfig{
+			&ipconfig.IPConfigData{
 				Hostname:    "dummy_2",
 				IPAddresses: "127.0.0.4",
 				Status:      true,
 			},
-			&ipconfig.IPConfig{
+			&ipconfig.IPConfigData{
 				Hostname:    "dummy_2",
 				IPAddresses: "127.0.0.5",
 				Status:      true,
 			},
-			&ipconfig.IPConfig{
+			&ipconfig.IPConfigData{
 				Hostname:    "dummy_3",
 				IPAddresses: "127.0.0.6",
 				Status:      false,

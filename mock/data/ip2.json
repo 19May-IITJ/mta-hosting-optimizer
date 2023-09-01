@@ -2,2411 +2,2411 @@
   {
     "ipAddresses": "127.0.0.1",
     "hostname": "mta-prod-1",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.2",
     "hostname": "mta-prod-2",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.3",
     "hostname": "mta-prod-3",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.4",
     "hostname": "mta-prod-4",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.5",
     "hostname": "mta-prod-5",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.6",
     "hostname": "mta-prod-6",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.7",
     "hostname": "mta-prod-7",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.8",
     "hostname": "mta-prod-8",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.9",
     "hostname": "mta-prod-9",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.10",
     "hostname": "mta-prod-10",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.11",
     "hostname": "mta-prod-11",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.12",
     "hostname": "mta-prod-12",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.13",
     "hostname": "mta-prod-13",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.14",
     "hostname": "mta-prod-14",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.15",
     "hostname": "mta-prod-15",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.16",
     "hostname": "mta-prod-16",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.17",
     "hostname": "mta-prod-17",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.18",
     "hostname": "mta-prod-18",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.19",
     "hostname": "mta-prod-19",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.20",
     "hostname": "mta-prod-20",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.21",
     "hostname": "mta-prod-21",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.22",
     "hostname": "mta-prod-22",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.23",
     "hostname": "mta-prod-23",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.24",
     "hostname": "mta-prod-24",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.25",
     "hostname": "mta-prod-25",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.26",
     "hostname": "mta-prod-26",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.27",
     "hostname": "mta-prod-27",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.28",
     "hostname": "mta-prod-28",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.29",
     "hostname": "mta-prod-29",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.30",
     "hostname": "mta-prod-30",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.31",
     "hostname": "mta-prod-31",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.32",
     "hostname": "mta-prod-32",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.33",
     "hostname": "mta-prod-33",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.34",
     "hostname": "mta-prod-34",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.35",
     "hostname": "mta-prod-35",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.36",
     "hostname": "mta-prod-1",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.37",
     "hostname": "mta-prod-2",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.38",
     "hostname": "mta-prod-3",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.39",
     "hostname": "mta-prod-4",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.40",
     "hostname": "mta-prod-5",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.41",
     "hostname": "mta-prod-6",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.42",
     "hostname": "mta-prod-7",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.43",
     "hostname": "mta-prod-8",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.44",
     "hostname": "mta-prod-9",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.45",
     "hostname": "mta-prod-10",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.46",
     "hostname": "mta-prod-11",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.47",
     "hostname": "mta-prod-12",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.48",
     "hostname": "mta-prod-13",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.49",
     "hostname": "mta-prod-14",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.50",
     "hostname": "mta-prod-15",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.51",
     "hostname": "mta-prod-16",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.52",
     "hostname": "mta-prod-17",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.53",
     "hostname": "mta-prod-18",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.54",
     "hostname": "mta-prod-19",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.55",
     "hostname": "mta-prod-20",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.56",
     "hostname": "mta-prod-21",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.57",
     "hostname": "mta-prod-22",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.58",
     "hostname": "mta-prod-23",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.59",
     "hostname": "mta-prod-24",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.60",
     "hostname": "mta-prod-25",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.61",
     "hostname": "mta-prod-26",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.62",
     "hostname": "mta-prod-27",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.63",
     "hostname": "mta-prod-28",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.64",
     "hostname": "mta-prod-29",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.65",
     "hostname": "mta-prod-30",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.66",
     "hostname": "mta-prod-31",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.67",
     "hostname": "mta-prod-32",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.68",
     "hostname": "mta-prod-33",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.69",
     "hostname": "mta-prod-34",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.70",
     "hostname": "mta-prod-35",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.71",
     "hostname": "mta-prod-1",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.72",
     "hostname": "mta-prod-2",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.73",
     "hostname": "mta-prod-3",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.74",
     "hostname": "mta-prod-4",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.75",
     "hostname": "mta-prod-5",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.76",
     "hostname": "mta-prod-6",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.77",
     "hostname": "mta-prod-7",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.78",
     "hostname": "mta-prod-8",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.79",
     "hostname": "mta-prod-9",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.80",
     "hostname": "mta-prod-10",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.81",
     "hostname": "mta-prod-11",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.82",
     "hostname": "mta-prod-12",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.83",
     "hostname": "mta-prod-13",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.84",
     "hostname": "mta-prod-14",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.85",
     "hostname": "mta-prod-15",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.86",
     "hostname": "mta-prod-16",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.87",
     "hostname": "mta-prod-17",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.88",
     "hostname": "mta-prod-18",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.89",
     "hostname": "mta-prod-19",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.90",
     "hostname": "mta-prod-20",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.91",
     "hostname": "mta-prod-21",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.92",
     "hostname": "mta-prod-22",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.93",
     "hostname": "mta-prod-23",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.94",
     "hostname": "mta-prod-24",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.95",
     "hostname": "mta-prod-25",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.96",
     "hostname": "mta-prod-26",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.97",
     "hostname": "mta-prod-27",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.98",
     "hostname": "mta-prod-28",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.99",
     "hostname": "mta-prod-29",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.100",
     "hostname": "mta-prod-30",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.101",
     "hostname": "mta-prod-31",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.102",
     "hostname": "mta-prod-32",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.103",
     "hostname": "mta-prod-33",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.104",
     "hostname": "mta-prod-34",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.105",
     "hostname": "mta-prod-35",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.106",
     "hostname": "mta-prod-1",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.107",
     "hostname": "mta-prod-2",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.108",
     "hostname": "mta-prod-3",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.109",
     "hostname": "mta-prod-4",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.110",
     "hostname": "mta-prod-5",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.111",
     "hostname": "mta-prod-6",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.112",
     "hostname": "mta-prod-7",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.113",
     "hostname": "mta-prod-8",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.114",
     "hostname": "mta-prod-9",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.115",
     "hostname": "mta-prod-10",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.116",
     "hostname": "mta-prod-11",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.117",
     "hostname": "mta-prod-12",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.118",
     "hostname": "mta-prod-13",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.119",
     "hostname": "mta-prod-14",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.120",
     "hostname": "mta-prod-15",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.121",
     "hostname": "mta-prod-16",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.122",
     "hostname": "mta-prod-17",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.123",
     "hostname": "mta-prod-18",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.124",
     "hostname": "mta-prod-19",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.125",
     "hostname": "mta-prod-20",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.126",
     "hostname": "mta-prod-21",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.127",
     "hostname": "mta-prod-22",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.128",
     "hostname": "mta-prod-23",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.129",
     "hostname": "mta-prod-24",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.130",
     "hostname": "mta-prod-25",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.131",
     "hostname": "mta-prod-26",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.132",
     "hostname": "mta-prod-27",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.133",
     "hostname": "mta-prod-28",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.134",
     "hostname": "mta-prod-29",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.135",
     "hostname": "mta-prod-30",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.136",
     "hostname": "mta-prod-31",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.137",
     "hostname": "mta-prod-32",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.138",
     "hostname": "mta-prod-33",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.139",
     "hostname": "mta-prod-34",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.140",
     "hostname": "mta-prod-35",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.141",
     "hostname": "mta-prod-1",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.142",
     "hostname": "mta-prod-2",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.143",
     "hostname": "mta-prod-3",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.144",
     "hostname": "mta-prod-4",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.145",
     "hostname": "mta-prod-5",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.146",
     "hostname": "mta-prod-6",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.147",
     "hostname": "mta-prod-7",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.148",
     "hostname": "mta-prod-8",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.149",
     "hostname": "mta-prod-9",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.150",
     "hostname": "mta-prod-10",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.151",
     "hostname": "mta-prod-11",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.152",
     "hostname": "mta-prod-12",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.153",
     "hostname": "mta-prod-13",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.154",
     "hostname": "mta-prod-14",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.155",
     "hostname": "mta-prod-15",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.156",
     "hostname": "mta-prod-16",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.157",
     "hostname": "mta-prod-17",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.158",
     "hostname": "mta-prod-18",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.159",
     "hostname": "mta-prod-19",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.160",
     "hostname": "mta-prod-20",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.161",
     "hostname": "mta-prod-21",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.162",
     "hostname": "mta-prod-22",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.163",
     "hostname": "mta-prod-23",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.164",
     "hostname": "mta-prod-24",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.165",
     "hostname": "mta-prod-25",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.166",
     "hostname": "mta-prod-26",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.167",
     "hostname": "mta-prod-27",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.168",
     "hostname": "mta-prod-28",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.169",
     "hostname": "mta-prod-29",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.170",
     "hostname": "mta-prod-30",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.171",
     "hostname": "mta-prod-31",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.172",
     "hostname": "mta-prod-32",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.173",
     "hostname": "mta-prod-33",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.174",
     "hostname": "mta-prod-34",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.175",
     "hostname": "mta-prod-35",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.176",
     "hostname": "mta-prod-1",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.177",
     "hostname": "mta-prod-2",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.178",
     "hostname": "mta-prod-3",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.179",
     "hostname": "mta-prod-4",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.180",
     "hostname": "mta-prod-5",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.181",
     "hostname": "mta-prod-6",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.182",
     "hostname": "mta-prod-7",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.183",
     "hostname": "mta-prod-8",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.184",
     "hostname": "mta-prod-9",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.185",
     "hostname": "mta-prod-10",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.186",
     "hostname": "mta-prod-11",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.187",
     "hostname": "mta-prod-12",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.188",
     "hostname": "mta-prod-13",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.189",
     "hostname": "mta-prod-14",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.190",
     "hostname": "mta-prod-15",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.191",
     "hostname": "mta-prod-16",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.192",
     "hostname": "mta-prod-17",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.193",
     "hostname": "mta-prod-18",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.194",
     "hostname": "mta-prod-19",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.195",
     "hostname": "mta-prod-20",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.196",
     "hostname": "mta-prod-21",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.197",
     "hostname": "mta-prod-22",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.198",
     "hostname": "mta-prod-23",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.199",
     "hostname": "mta-prod-24",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.200",
     "hostname": "mta-prod-25",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.201",
     "hostname": "mta-prod-26",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.202",
     "hostname": "mta-prod-27",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.203",
     "hostname": "mta-prod-28",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.204",
     "hostname": "mta-prod-29",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.205",
     "hostname": "mta-prod-30",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.206",
     "hostname": "mta-prod-31",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.207",
     "hostname": "mta-prod-32",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.208",
     "hostname": "mta-prod-33",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.209",
     "hostname": "mta-prod-34",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.210",
     "hostname": "mta-prod-35",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.211",
     "hostname": "mta-prod-1",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.212",
     "hostname": "mta-prod-2",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.213",
     "hostname": "mta-prod-3",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.214",
     "hostname": "mta-prod-4",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.215",
     "hostname": "mta-prod-5",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.216",
     "hostname": "mta-prod-6",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.217",
     "hostname": "mta-prod-7",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.218",
     "hostname": "mta-prod-8",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.219",
     "hostname": "mta-prod-9",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.220",
     "hostname": "mta-prod-10",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.221",
     "hostname": "mta-prod-11",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.222",
     "hostname": "mta-prod-12",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.223",
     "hostname": "mta-prod-13",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.224",
     "hostname": "mta-prod-14",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.225",
     "hostname": "mta-prod-15",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.226",
     "hostname": "mta-prod-16",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.227",
     "hostname": "mta-prod-17",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.228",
     "hostname": "mta-prod-18",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.229",
     "hostname": "mta-prod-19",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.230",
     "hostname": "mta-prod-20",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.231",
     "hostname": "mta-prod-21",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.232",
     "hostname": "mta-prod-22",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.233",
     "hostname": "mta-prod-23",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.234",
     "hostname": "mta-prod-24",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.235",
     "hostname": "mta-prod-25",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.236",
     "hostname": "mta-prod-26",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.237",
     "hostname": "mta-prod-27",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.238",
     "hostname": "mta-prod-28",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.239",
     "hostname": "mta-prod-29",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.240",
     "hostname": "mta-prod-30",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.241",
     "hostname": "mta-prod-31",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.242",
     "hostname": "mta-prod-32",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.243",
     "hostname": "mta-prod-33",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.244",
     "hostname": "mta-prod-34",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.245",
     "hostname": "mta-prod-35",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.246",
     "hostname": "mta-prod-1",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.247",
     "hostname": "mta-prod-2",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.248",
     "hostname": "mta-prod-3",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.249",
     "hostname": "mta-prod-4",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.250",
     "hostname": "mta-prod-5",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.251",
     "hostname": "mta-prod-6",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.252",
     "hostname": "mta-prod-7",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.253",
     "hostname": "mta-prod-8",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.254",
     "hostname": "mta-prod-9",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.255",
     "hostname": "mta-prod-10",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.256",
     "hostname": "mta-prod-11",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.257",
     "hostname": "mta-prod-12",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.258",
     "hostname": "mta-prod-13",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.259",
     "hostname": "mta-prod-14",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.260",
     "hostname": "mta-prod-15",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.261",
     "hostname": "mta-prod-16",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.262",
     "hostname": "mta-prod-17",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.263",
     "hostname": "mta-prod-18",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.264",
     "hostname": "mta-prod-19",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.265",
     "hostname": "mta-prod-20",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.266",
     "hostname": "mta-prod-21",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.267",
     "hostname": "mta-prod-22",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.268",
     "hostname": "mta-prod-23",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.269",
     "hostname": "mta-prod-24",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.270",
     "hostname": "mta-prod-25",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.271",
     "hostname": "mta-prod-26",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.272",
     "hostname": "mta-prod-27",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.273",
     "hostname": "mta-prod-28",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.274",
     "hostname": "mta-prod-29",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.275",
     "hostname": "mta-prod-30",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.276",
     "hostname": "mta-prod-31",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.277",
     "hostname": "mta-prod-32",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.278",
     "hostname": "mta-prod-33",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.279",
     "hostname": "mta-prod-34",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.280",
     "hostname": "mta-prod-35",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.281",
     "hostname": "mta-prod-1",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.282",
     "hostname": "mta-prod-2",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.283",
     "hostname": "mta-prod-3",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.284",
     "hostname": "mta-prod-4",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.285",
     "hostname": "mta-prod-5",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.286",
     "hostname": "mta-prod-6",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.287",
     "hostname": "mta-prod-7",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.288",
     "hostname": "mta-prod-8",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.289",
     "hostname": "mta-prod-9",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.290",
     "hostname": "mta-prod-10",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.291",
     "hostname": "mta-prod-11",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.292",
     "hostname": "mta-prod-12",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.293",
     "hostname": "mta-prod-13",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.294",
     "hostname": "mta-prod-14",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.295",
     "hostname": "mta-prod-15",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.296",
     "hostname": "mta-prod-16",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.297",
     "hostname": "mta-prod-17",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.298",
     "hostname": "mta-prod-18",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.299",
     "hostname": "mta-prod-19",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.300",
     "hostname": "mta-prod-20",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.301",
     "hostname": "mta-prod-21",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.302",
     "hostname": "mta-prod-22",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.303",
     "hostname": "mta-prod-23",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.304",
     "hostname": "mta-prod-24",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.305",
     "hostname": "mta-prod-25",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.306",
     "hostname": "mta-prod-26",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.307",
     "hostname": "mta-prod-27",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.308",
     "hostname": "mta-prod-28",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.309",
     "hostname": "mta-prod-29",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.310",
     "hostname": "mta-prod-30",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.311",
     "hostname": "mta-prod-31",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.312",
     "hostname": "mta-prod-32",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.313",
     "hostname": "mta-prod-33",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.314",
     "hostname": "mta-prod-34",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.315",
     "hostname": "mta-prod-35",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.316",
     "hostname": "mta-prod-1",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.317",
     "hostname": "mta-prod-2",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.318",
     "hostname": "mta-prod-3",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.319",
     "hostname": "mta-prod-4",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.320",
     "hostname": "mta-prod-5",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.321",
     "hostname": "mta-prod-6",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.322",
     "hostname": "mta-prod-7",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.323",
     "hostname": "mta-prod-8",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.324",
     "hostname": "mta-prod-9",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.325",
     "hostname": "mta-prod-10",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.326",
     "hostname": "mta-prod-11",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.327",
     "hostname": "mta-prod-12",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.328",
     "hostname": "mta-prod-13",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.329",
     "hostname": "mta-prod-14",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.330",
     "hostname": "mta-prod-15",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.331",
     "hostname": "mta-prod-16",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.332",
     "hostname": "mta-prod-17",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.333",
     "hostname": "mta-prod-18",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.334",
     "hostname": "mta-prod-19",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.335",
     "hostname": "mta-prod-20",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.336",
     "hostname": "mta-prod-21",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.337",
     "hostname": "mta-prod-22",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.338",
     "hostname": "mta-prod-23",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.339",
     "hostname": "mta-prod-24",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.340",
     "hostname": "mta-prod-25",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.341",
     "hostname": "mta-prod-26",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.342",
     "hostname": "mta-prod-27",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.343",
     "hostname": "mta-prod-28",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.344",
     "hostname": "mta-prod-29",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.345",
     "hostname": "mta-prod-30",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.346",
     "hostname": "mta-prod-31",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.347",
     "hostname": "mta-prod-32",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.348",
     "hostname": "mta-prod-33",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.349",
     "hostname": "mta-prod-34",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.350",
     "hostname": "mta-prod-35",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.351",
     "hostname": "mta-prod-1",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.352",
     "hostname": "mta-prod-2",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.353",
     "hostname": "mta-prod-3",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.354",
     "hostname": "mta-prod-4",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.355",
     "hostname": "mta-prod-5",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.356",
     "hostname": "mta-prod-6",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.357",
     "hostname": "mta-prod-7",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.358",
     "hostname": "mta-prod-8",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.359",
     "hostname": "mta-prod-9",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.360",
     "hostname": "mta-prod-10",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.361",
     "hostname": "mta-prod-11",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.362",
     "hostname": "mta-prod-12",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.363",
     "hostname": "mta-prod-13",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.364",
     "hostname": "mta-prod-14",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.365",
     "hostname": "mta-prod-15",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.366",
     "hostname": "mta-prod-16",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.367",
     "hostname": "mta-prod-17",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.368",
     "hostname": "mta-prod-18",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.369",
     "hostname": "mta-prod-19",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.370",
     "hostname": "mta-prod-20",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.371",
     "hostname": "mta-prod-21",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.372",
     "hostname": "mta-prod-22",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.373",
     "hostname": "mta-prod-23",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.374",
     "hostname": "mta-prod-24",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.375",
     "hostname": "mta-prod-25",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.376",
     "hostname": "mta-prod-26",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.377",
     "hostname": "mta-prod-27",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.378",
     "hostname": "mta-prod-28",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.379",
     "hostname": "mta-prod-29",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.380",
     "hostname": "mta-prod-30",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.381",
     "hostname": "mta-prod-31",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.382",
     "hostname": "mta-prod-32",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.383",
     "hostname": "mta-prod-33",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.384",
     "hostname": "mta-prod-34",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.385",
     "hostname": "mta-prod-35",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.386",
     "hostname": "mta-prod-1",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.387",
     "hostname": "mta-prod-2",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.388",
     "hostname": "mta-prod-3",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.389",
     "hostname": "mta-prod-4",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.390",
     "hostname": "mta-prod-5",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.391",
     "hostname": "mta-prod-6",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.392",
     "hostname": "mta-prod-7",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.393",
     "hostname": "mta-prod-8",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.394",
     "hostname": "mta-prod-9",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.395",
     "hostname": "mta-prod-10",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.396",
     "hostname": "mta-prod-11",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.397",
     "hostname": "mta-prod-12",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.398",
     "hostname": "mta-prod-13",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.399",
     "hostname": "mta-prod-14",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.400",
     "hostname": "mta-prod-15",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.401",
     "hostname": "mta-prod-16",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.402",
     "hostname": "mta-prod-17",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.403",
     "hostname": "mta-prod-18",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.404",
     "hostname": "mta-prod-19",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.405",
     "hostname": "mta-prod-20",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.406",
     "hostname": "mta-prod-21",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.407",
     "hostname": "mta-prod-22",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.408",
     "hostname": "mta-prod-23",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.409",
     "hostname": "mta-prod-24",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.410",
     "hostname": "mta-prod-25",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.411",
     "hostname": "mta-prod-26",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.412",
     "hostname": "mta-prod-27",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.413",
     "hostname": "mta-prod-28",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.414",
     "hostname": "mta-prod-29",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.415",
     "hostname": "mta-prod-30",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.416",
     "hostname": "mta-prod-31",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.417",
     "hostname": "mta-prod-32",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.418",
     "hostname": "mta-prod-33",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.419",
     "hostname": "mta-prod-34",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.420",
     "hostname": "mta-prod-35",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.421",
     "hostname": "mta-prod-1",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.422",
     "hostname": "mta-prod-2",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.423",
     "hostname": "mta-prod-3",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.424",
     "hostname": "mta-prod-4",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.425",
     "hostname": "mta-prod-5",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.426",
     "hostname": "mta-prod-6",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.427",
     "hostname": "mta-prod-7",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.428",
     "hostname": "mta-prod-8",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.429",
     "hostname": "mta-prod-9",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.430",
     "hostname": "mta-prod-10",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.431",
     "hostname": "mta-prod-11",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.432",
     "hostname": "mta-prod-12",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.433",
     "hostname": "mta-prod-13",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.434",
     "hostname": "mta-prod-14",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.435",
     "hostname": "mta-prod-15",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.436",
     "hostname": "mta-prod-16",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.437",
     "hostname": "mta-prod-17",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.438",
     "hostname": "mta-prod-18",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.439",
     "hostname": "mta-prod-19",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.440",
     "hostname": "mta-prod-20",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.441",
     "hostname": "mta-prod-21",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.442",
     "hostname": "mta-prod-22",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.443",
     "hostname": "mta-prod-23",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.444",
     "hostname": "mta-prod-24",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.445",
     "hostname": "mta-prod-25",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.446",
     "hostname": "mta-prod-26",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.447",
     "hostname": "mta-prod-27",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.448",
     "hostname": "mta-prod-28",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.449",
     "hostname": "mta-prod-29",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.450",
     "hostname": "mta-prod-30",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.451",
     "hostname": "mta-prod-31",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.452",
     "hostname": "mta-prod-32",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.453",
     "hostname": "mta-prod-33",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.454",
     "hostname": "mta-prod-34",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.455",
     "hostname": "mta-prod-35",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.456",
     "hostname": "mta-prod-1",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.457",
     "hostname": "mta-prod-2",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.458",
     "hostname": "mta-prod-3",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.459",
     "hostname": "mta-prod-4",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.460",
     "hostname": "mta-prod-5",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.461",
     "hostname": "mta-prod-6",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.462",
     "hostname": "mta-prod-7",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.463",
     "hostname": "mta-prod-8",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.464",
     "hostname": "mta-prod-9",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.465",
     "hostname": "mta-prod-10",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.466",
     "hostname": "mta-prod-11",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.467",
     "hostname": "mta-prod-12",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.468",
     "hostname": "mta-prod-13",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.469",
     "hostname": "mta-prod-14",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.470",
     "hostname": "mta-prod-15",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.471",
     "hostname": "mta-prod-16",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.472",
     "hostname": "mta-prod-17",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.473",
     "hostname": "mta-prod-18",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.474",
     "hostname": "mta-prod-19",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.475",
     "hostname": "mta-prod-20",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.476",
     "hostname": "mta-prod-21",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.477",
     "hostname": "mta-prod-22",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.478",
     "hostname": "mta-prod-23",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.479",
     "hostname": "mta-prod-24",
-    "status": "1"
+    "status": true
   },
   {
     "ipAddresses": "127.0.0.480",
     "hostname": "mta-prod-25",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.481",
     "hostname": "mta-prod-26",
-    "status": "0"
+    "status": false
   },
   {
     "ipAddresses": "127.0.0.482",
     "hostname": "mta-prod-27",
-    "status": "0"
+    "status": false
   }
 ]

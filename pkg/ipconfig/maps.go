@@ -4,20 +4,24 @@ import (
 	"github.com/pkg/errors"
 )
 
-var _ Configuration = (*RegisterMap)(nil)
+var _ ConfigServiceIPMap = (*RegisterMap)(nil)
 
 type RegisterMap struct {
-	handlermap map[string]int
+	handlermap map[string]*IPState
+}
+type IPState struct {
+	State    bool
+	Hostname string
 }
 
 // New returns the new map of RegisterMap type
 func NewMap() *RegisterMap {
-	r := RegisterMap{handlermap: make(map[string]int)}
+	r := RegisterMap{handlermap: make(map[string]*IPState)}
 	return &r
 }
 
 // Put Adds the key value pair into the map
-func (s *RegisterMap) Put(key string, value int) {
+func (s *RegisterMap) Put(key string, value *IPState) {
 	s.handlermap[key] = value
 }
 
@@ -28,7 +32,7 @@ func (s *RegisterMap) Contains(key string) bool {
 }
 
 // GetValues returns value associated with the key
-func (s *RegisterMap) GetValue(key string) (values int, err error) {
+func (s *RegisterMap) GetValue(key string) (values *IPState, err error) {
 	var ok bool
 	values, ok = s.handlermap[key]
 	if !ok {
@@ -45,7 +49,7 @@ func (s *RegisterMap) RemoveKey(keys ...string) {
 }
 
 // GetValues returns the underlying map
-func (s *RegisterMap) GetValues() map[string]int {
+func (s *RegisterMap) GetValues() map[string]*IPState {
 	return s.handlermap
 }
 
@@ -56,7 +60,7 @@ func (s *RegisterMap) Size() int {
 
 // Flushes all the key in map
 func (s *RegisterMap) Clear() {
-	s.handlermap = make(map[string]int)
+	s.handlermap = make(map[string]*IPState)
 }
 
 // Check whether the Map is empty or not
