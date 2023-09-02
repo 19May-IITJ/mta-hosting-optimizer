@@ -30,7 +30,7 @@ func RetrieveHostnames(nc *nats.Conn, maxIPs int, result dataconfig.HostingServi
 		var inefficientHostnames []string
 		if result.IsEmpty() {
 			counter++
-			hostingloader.LoadActiveIPForHost(nc, result, dEFAULTCONTEXTTIMEOUT)
+			hostingloader.LoadActiveIPForHost(nc, result, dEFAULTCONTEXTTIMEOUT+1)
 		}
 		inefficientHostnames = dataconfig.GetHostnamesWithMaxIPs(maxIPs, result)
 

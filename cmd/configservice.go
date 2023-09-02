@@ -21,10 +21,7 @@ func configservice(a *appConfig) *cli.Command {
 		ArgsUsage: "",
 		Before:    beforeConfigService,
 		Action: func(c *cli.Context) error {
-			{
-				os.Setenv(utility.CONFIGSERVICE_PORT, "8020")
-				os.Setenv(utility.NATS_URI, "nats://localhost:4222")
-			}
+
 			utility.NATS_ADD = os.Getenv(utility.NATS_URI)
 			port := os.Getenv(utility.CONFIGSERVICE_PORT)
 			if port != "" && utility.NATS_ADD != "" {
