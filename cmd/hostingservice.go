@@ -3,12 +3,15 @@ package main
 import (
 	"context"
 	"errors"
+	"fmt"
 	"log"
 	"mta2/modules"
 	"mta2/modules/utility"
+	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 
 	"github.com/urfave/cli/v2"
 )
@@ -22,11 +25,17 @@ func hostingservice(a *appConfig) *cli.Command {
 		Before:    beforeHostingService,
 		Action: func(c *cli.Context) error {
 
+			ctx, cancel := context.WithCancel(context.Background())
+			defer cancel()
+			sigChan := make(chan os.Signal, 1)
+			signal.Notify(sigChan, os.Interrupt, syscall.SIGINT, syscall.SIGTERM)
+			server := &http.Server{}
+
 			utility.NATS_ADD = os.Getenv(utility.NATS_URI)
 			port := os.Getenv(utility.HOSTINGSERVICE_PORT)
 
 			if port != "" && utility.NATS_ADD != "" {
-				modules.RegisterService(port, utility.HOSTINGSERVICE)
+				modules.RegisterService(ctx, port, utility.HOSTINGSERVICE, server)
 			} else {
 				//Logger Block
 				log.Println("Unable to start Hosting Service")
@@ -35,9 +44,14 @@ func hostingservice(a *appConfig) *cli.Command {
 				//Logger Block
 			}
 			log.Println("Press ^C to shutdown server")
-			ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
-			<-ctx.Done()
-			defer stop()
+			<-sigChan
+			// Handle OS signals (e.g., Ctrl+C).
+			fmt.Println("\nReceived termination signal. Shutting down gracefully...")
+			timeoutCtx, cancel := context.WithTimeout(ctx, 12*time.Second)
+			if err := server.Shutdown(timeoutCtx); err != nil {
+				fmt.Printf("Server shutdown error: %v\n", err)
+			}
+			defer cancel()
 			return nil
 		},
 		After: func(ctx *cli.Context) error {

@@ -1,11 +1,14 @@
 package modules
 
 import (
+	"context"
+	"fmt"
 	"log"
 	"mta2/modules/configservice"
 	"mta2/modules/configservice/cinternals/handler"
 	"mta2/modules/configservice/cinternals/loader"
 	"mta2/modules/hostingservice/hinternals/hostingloader"
+	"time"
 
 	"mta2/modules/hostingservice/hinternals/hosthandler"
 	"mta2/modules/hostingservice/pkg/dataconfig"
@@ -19,10 +22,9 @@ import (
 	"github.com/nats-io/nats.go"
 )
 
-func RegisterService(serviceport string, kind string) {
+func RegisterService(ctx context.Context, serviceport string, kind string, s *http.Server) {
 	switch kind {
 	case utility.CONFIGSERVICE:
-		// ctx := context.Background()
 		result := ipconfig.NewMap()
 		list := ipconfig.NewIPConfigList()
 		// Load configuration
@@ -31,11 +33,21 @@ func RegisterService(serviceport string, kind string) {
 			log.Println("ip configurations loaded successfully")
 			// register handlers to endpoints
 			if nc, err := nats.Connect(utility.NATS_ADD); err == nil {
+				handler.Ticker = time.NewTicker(handler.TTL * time.Second)
+				go handler.TTLForFileSaving(ctx, list)
 				configservice.PublishInvokeMessagetoNATS(result, nc)
 				http.HandleFunc("/refresh", handler.RefreshDataSet(result, list, nc))
 				log.Printf("Server listening on port %s\n", serviceport)
 				// Starting server
-				log.Fatal(http.ListenAndServe(hostAddr()+":"+serviceport, nil))
+				s.Addr = hostAddr() + ":" + serviceport
+
+				go func() {
+					// Start the server and listen for incoming requests.
+					if err := s.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+						fmt.Printf("Error: %v\n", err)
+					}
+				}()
+
 			} else {
 				log.Printf("Error %v \n-*-unable to launch application-*-\n", err)
 			}
@@ -56,7 +68,14 @@ func RegisterService(serviceport string, kind string) {
 				http.HandleFunc("/hostnames", hosthandler.RetrieveHostnames(nc, x, mp))
 				log.Printf("Server listening on port %s\n", serviceport)
 				// Starting server
-				log.Fatal(http.ListenAndServe(hostAddr()+":"+serviceport, nil))
+				s.Addr = hostAddr() + ":" + serviceport
+
+				go func() {
+					// Start the server and listen for incoming requests.
+					if err := s.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+						fmt.Printf("Error: %v\n", err)
+					}
+				}()
 			} else {
 				log.Printf("Error %v \n-*-unable to launch application-*-\n", err)
 			}

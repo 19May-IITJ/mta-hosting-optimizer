@@ -3,10 +3,12 @@ package handler
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"io"
 	"log"
 	"mta2/modules/configservice/cinternals/constants"
 	"mta2/modules/configservice/cinternals/loader"
+	"os"
 
 	"mta2/modules/configservice/cpkg/ipconfig"
 	"mta2/modules/utility"
@@ -21,7 +23,15 @@ import (
 	"github.com/nats-io/nats.go"
 )
 
-var datamutex sync.Mutex
+var (
+	datamutex  sync.Mutex
+	Ticker     *time.Ticker
+	FLAGTOSAVE bool
+)
+
+const (
+	TTL = 30
+)
 
 // Refresh DataSet handler return http handleFunc used to reload all ip & hostname data and active ip's under hostname
 func RefreshDataSet(c ipconfig.ConfigServiceIPMap, ipl ipconfig.IPListI, nc *nats.Conn) http.HandlerFunc {
@@ -71,6 +81,8 @@ func RefreshDataSet(c ipconfig.ConfigServiceIPMap, ipl ipconfig.IPListI, nc *nat
 							hd.HostedIP[index] = s
 							go func(update *ipconfig.IPConfigData) {
 								datamutex.Lock()
+								FLAGTOSAVE = true
+								Ticker.Reset(TTL * time.Second)
 								if index := loader.Search(ipl.GetIPValues(), update.IPAddresses); index != -1 {
 									ipl.GetIPValues()[index] = &ipconfig.IPConfigData{
 										Hostname:    update.Hostname,
@@ -122,4 +134,42 @@ func RefreshDataSet(c ipconfig.ConfigServiceIPMap, ipl ipconfig.IPListI, nc *nat
 	}
 }
 
-// either invalid IP and Hostname Mapping or the
+func TTLForFileSaving(ctx context.Context, ipl ipconfig.IPListI) {
+	log.Println("Started TTL handler to save in DB")
+
+	for {
+		select {
+		case <-ctx.Done():
+			Ticker.Stop()
+			log.Println("Got response to shutdown TTL")
+			return
+		case <-Ticker.C:
+			log.Println("ticker hit")
+			if FLAGTOSAVE {
+				datamutex.Lock()
+
+				path := os.Getenv(constants.DBPATH)
+				if path == "" {
+					path = constants.DEFAULTPATH
+				}
+
+				// Marshal the entire updated data
+				updatedData, err := json.MarshalIndent(ipl.GetIPValues(), "", "  ")
+				if err != nil {
+					fmt.Println("Error marshaling JSON:", err)
+					return
+				}
+
+				// Write back the entire JSON file with the updated entry
+				err = os.WriteFile(path, updatedData, 0644)
+				if err != nil {
+					fmt.Println("Error writing file:", err)
+					return
+				}
+				FLAGTOSAVE = false
+				datamutex.Unlock()
+				fmt.Println("JSON entry updated successfully!")
+			}
+		}
+	}
+}
