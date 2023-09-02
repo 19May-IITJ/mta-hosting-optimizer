@@ -31,15 +31,15 @@ Config Service is an interface layer between the DB (currently a JSON File) and 
 ## Installation
 
 Clone the library in you local,
-Step 1:- setup NATS on your local or remote or via docker (docker pull nats)
-Step 2:- set the env variable of the service you want to host/serve first
-for Hosting service MTA_THRESHOLD, NATS_URI*, HOSTINGSERVICE_PORT* need to be set (_ marked are compulsory env no default value)
-for Config Service NATS_URI_, CONFIGSERVICE_PORT*, DBPATH* needs to be set (There is a default value for DBPATH but only work once you set it in repo of your own and build the project)
-Step 3:- There is a make file included in the project
-run command on shell
-make bin (for making binary name of binary is fixed - "mta")
-make config
-make hosting
+    Step 1:- setup NATS on your local or remote or via docker (docker pull nats)
+    Step 2:- set the env variable of the service you want to host/serve first
+            for Hosting service MTA_THRESHOLD, NATS_URI*, HOSTINGSERVICE_PORT* need to be set (_ marked are compulsory env no default value)
+            for Config Service NATS_URI_, CONFIGSERVICE_PORT*, DBPATH* needs to be set (There is a default value for DBPATH but only work once you set it in repo of your own and build the project)
+    Step 3:- There is a make file included in the project
+            run command on shell
+            make bin (for making binary name of binary is fixed - "mta")
+            make config
+            make hosting
 (NOTE:- if you running multiple instance of hosting service then env of HOSTINGSERVICE_PORT need to be set differently for each instance if multiple instances are on same machine)
 
 ## Usage
