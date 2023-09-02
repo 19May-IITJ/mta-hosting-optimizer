@@ -13,4 +13,5 @@ const (
 
 var (
 	NATS_ADD string
+	TaskChan = make(chan interface{}, 1)
 )

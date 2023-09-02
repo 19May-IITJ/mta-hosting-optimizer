@@ -57,6 +57,9 @@ func configservice(a *appConfig) *cli.Command {
 
 		},
 		After: func(ctx *cli.Context) error {
+			log.Println(<-utility.TaskChan)
+			// publish message on NATS that I am getting you please flush you data
+			// so that stale data shouldn't be seen
 			return nil
 		},
 	}
