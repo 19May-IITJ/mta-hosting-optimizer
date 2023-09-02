@@ -34,5 +34,5 @@ func PublishInvokeMessagetoNATS(c ipconfig.ConfigServiceIPMap, nc *nats.Conn) {
 	if err != nil {
 		log.Fatal(err)
 	}
-
+	log.Println("Started NATS Reply on Config Service")
 }

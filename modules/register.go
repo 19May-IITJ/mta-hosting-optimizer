@@ -48,7 +48,7 @@ func RegisterService(serviceport string, kind string) {
 		// Load configuration
 		x := hostingloader.LoadConfigThreshold()
 		if nc, err := nats.Connect(utility.NATS_ADD); err == nil {
-			if err := hostingloader.LoadActiveIPForHost(nc, mp); err == nil {
+			if err := hostingloader.LoadActiveIPForHost(nc, mp, 0); err == nil || err == nats.ErrTimeout {
 				// Create HTTP server
 				hostingloader.LoadUpdateStatusforHostName(nc, mp)
 				log.Println("ip configurations loaded successfully")

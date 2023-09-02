@@ -21,8 +21,13 @@ func hostingservice(a *appConfig) *cli.Command {
 		ArgsUsage: "",
 		Before:    beforeHostingService,
 		Action: func(c *cli.Context) error {
+			{
+				os.Setenv(utility.HOSTINGSERVICE_PORT, "8040")
+				os.Setenv(utility.NATS_URI, "nats://localhost:4222")
+			}
 			utility.NATS_ADD = os.Getenv(utility.NATS_URI)
 			port := os.Getenv(utility.HOSTINGSERVICE_PORT)
+
 			if port != "" && utility.NATS_ADD != "" {
 				modules.RegisterService(port, utility.HOSTINGSERVICE)
 			} else {

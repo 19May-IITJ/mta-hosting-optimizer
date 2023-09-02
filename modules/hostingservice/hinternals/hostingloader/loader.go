@@ -13,6 +13,10 @@ import (
 	"github.com/nats-io/nats.go"
 )
 
+const (
+	DEFAULT_TIMEOUT = 15
+)
+
 // Load Config Threshold loads the MTA_THRESHOLD env variable default:1
 func LoadConfigThreshold() int {
 	defaultThreshold := 1
@@ -25,20 +29,24 @@ func LoadConfigThreshold() int {
 
 	return x
 }
-func LoadActiveIPForHost(nc *nats.Conn, mp dataconfig.HostingServiceHostMap) error {
+func LoadActiveIPForHost(nc *nats.Conn, mp dataconfig.HostingServiceHostMap, timeout time.Duration) error {
+	if timeout == 0 {
+		timeout = DEFAULT_TIMEOUT
+	}
 	requestMsg := []byte("Hello, Config Service!")
-	responseMsg, err := nc.Request(hostingconstants.INVOKE_PUB_SUBJECT, requestMsg, time.Second*50)
-	if err != nil {
-		log.Fatal(err)
+	responseMsg, err := nc.Request(hostingconstants.INVOKE_PUB_SUBJECT, requestMsg, time.Second*timeout)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+	if responseMsg != nil {
+		result := make([]*utility.Message, 0)
+		if err := json.Unmarshal(responseMsg.Data, &result); err == nil {
+			mp.Put(result...)
+		} else {
+			log.Println("unable to se-serialze data ", err)
+		}
 	}
-	result := make([]*utility.Message, 0)
-	if err := json.Unmarshal(responseMsg.Data, &result); err == nil {
-		mp.Put(result...)
-	} else {
-		log.Println("unable to se-serialze data ", err)
-	}
-
-	return nil
+	return err
 }
 
 func LoadUpdateStatusforHostName(nc *nats.Conn, mp dataconfig.HostingServiceHostMap) {

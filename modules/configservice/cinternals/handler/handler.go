@@ -82,7 +82,7 @@ func RefreshDataSet(c ipconfig.ConfigServiceIPMap, ipl ipconfig.IPListI, nc *nat
 											Status:      update.Status,
 										}
 									}
-									log.Printf("Added %s status success \n", update.IPAddresses)
+									log.Printf("Added %s status %v success for Host %s\n", update.IPAddresses, update.Status, update.Hostname)
 									datamutex.Unlock()
 								}(entry)
 								if message, err := json.Marshal(&utility.Message{
@@ -92,7 +92,7 @@ func RefreshDataSet(c ipconfig.ConfigServiceIPMap, ipl ipconfig.IPListI, nc *nat
 									if err = nc.Publish(constants.UPDATE_PUB_SUBJECT, message); err != nil {
 										log.Println("Error Publishing message to NATS ", err)
 									}
-									log.Println("published message success")
+									log.Println("published message success ", string(message))
 								} else {
 									log.Println("Unable to parse data couldn't publish to NATS ", err)
 								}
