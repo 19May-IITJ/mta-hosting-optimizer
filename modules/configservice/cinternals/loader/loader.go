@@ -3,26 +3,14 @@ package loader
 import (
 	"encoding/json"
 	"log"
-	"mta2/internal/constants"
-	"mta2/pkg/ipconfig"
+	"mta2/modules/configservice/cinternals/constants"
+	"mta2/modules/configservice/cpkg/ipconfig"
+	"strings"
+
 	"os"
 	"path/filepath"
 	"sort"
-	"strconv"
 )
-
-// Load Config Threshold loads the MTA_THRESHOLD env variable default:1
-func LoadConfigThreshold() int {
-	defaultThreshold := 1
-
-	threshold := os.Getenv(constants.MTA_THRESHOLD)
-	x, err := strconv.Atoi(threshold)
-	if err != nil || x <= 0 {
-		x = defaultThreshold
-	}
-
-	return x
-}
 
 // Load Config IPConfiguration loads the IP configuration Data based on DBPATH env variable
 func LoadConfigIPConfiguration(c ipconfig.ConfigServiceIPMap, ips ipconfig.IPListI) (err error) {
@@ -57,11 +45,34 @@ func LoadConfigIPConfiguration(c ipconfig.ConfigServiceIPMap, ips ipconfig.IPLis
 		})
 		ips.SetIPList(list)
 		for _, ip := range ips.GetIPValues() {
-			c.Put(ip.IPAddresses, &ipconfig.IPState{
-				State:    ip.Status,
-				Hostname: ip.Hostname,
-			})
+			if !c.Contains(ip.Hostname) {
+				c.Put(ip.Hostname, &ipconfig.HostData{
+					ActiveIP: 0,
+				})
+			}
+			hd, _ := c.GetValue(ip.Hostname)
+			if ip.Status {
+
+				hd.HostedIP = append(hd.HostedIP,
+					strings.Join([]string{ip.IPAddresses,
+						constants.Active}, constants.Sep))
+			} else {
+
+				hd.HostedIP = append(hd.HostedIP,
+					strings.Join([]string{ip.IPAddresses,
+						constants.Inactive}, constants.Sep))
+			}
+
 		}
+		for _, ip := range ips.GetIPValues() {
+
+			if ip.Status {
+				hostdata, _ := c.GetValue(ip.Hostname)
+				hostdata.ActiveIP++
+				// c.Put(ip.Hostname, hostdata)
+			}
+		}
+
 		return nil
 	} else {
 		log.Printf("Error %v\n", err)
@@ -82,7 +93,6 @@ func Search(s []*ipconfig.IPConfigData, targetIP string) int {
 		midIP := s[mid].IPAddresses
 
 		if midIP == targetIP {
-			log.Printf("Found %s at index %d\n", targetIP, mid)
 			return mid
 		} else if midIP < targetIP {
 			left = mid + 1

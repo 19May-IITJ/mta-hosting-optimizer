@@ -3,8 +3,8 @@ package handler
 import (
 	"context"
 	"encoding/json"
-	"mta2/internal/constants"
-	"mta2/pkg/ipconfig"
+	"mta2/modules/configservice/internal/constants"
+	"mta2/modules/configservice/pkg/ipconfig"
 	"net/http"
 	"net/http/httptest"
 	"os"

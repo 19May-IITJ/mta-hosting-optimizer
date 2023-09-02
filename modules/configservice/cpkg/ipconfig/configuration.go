@@ -2,10 +2,10 @@ package ipconfig
 
 // Configuration Interfaces provide methods for operating on map of hostname and active mta
 type ConfigServiceIPMap interface {
-	Put(string, *IPState)
+	Put(string, *HostData)
 	Contains(string) bool
-	GetValue(string) (*IPState, error)
-	GetValues() map[string]*IPState
+	GetValue(string) (*HostData, error)
+	GetValues() map[string]*HostData
 	RemoveKey(...string)
 	Size() int
 	Clear()

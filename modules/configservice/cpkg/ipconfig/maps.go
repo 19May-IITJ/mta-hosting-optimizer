@@ -7,21 +7,26 @@ import (
 var _ ConfigServiceIPMap = (*RegisterMap)(nil)
 
 type RegisterMap struct {
-	handlermap map[string]*IPState
+	handlermap map[string]*HostData
 }
+
 type IPState struct {
-	State    bool
-	Hostname string
+	IP    string
+	State bool
+}
+type HostData struct {
+	HostedIP []string
+	ActiveIP int
 }
 
 // New returns the new map of RegisterMap type
 func NewMap() *RegisterMap {
-	r := RegisterMap{handlermap: make(map[string]*IPState)}
+	r := RegisterMap{handlermap: make(map[string]*HostData)}
 	return &r
 }
 
 // Put Adds the key value pair into the map
-func (s *RegisterMap) Put(key string, value *IPState) {
+func (s *RegisterMap) Put(key string, value *HostData) {
 	s.handlermap[key] = value
 }
 
@@ -32,7 +37,7 @@ func (s *RegisterMap) Contains(key string) bool {
 }
 
 // GetValues returns value associated with the key
-func (s *RegisterMap) GetValue(key string) (values *IPState, err error) {
+func (s *RegisterMap) GetValue(key string) (values *HostData, err error) {
 	var ok bool
 	values, ok = s.handlermap[key]
 	if !ok {
@@ -49,7 +54,7 @@ func (s *RegisterMap) RemoveKey(keys ...string) {
 }
 
 // GetValues returns the underlying map
-func (s *RegisterMap) GetValues() map[string]*IPState {
+func (s *RegisterMap) GetValues() map[string]*HostData {
 	return s.handlermap
 }
 
@@ -60,7 +65,7 @@ func (s *RegisterMap) Size() int {
 
 // Flushes all the key in map
 func (s *RegisterMap) Clear() {
-	s.handlermap = make(map[string]*IPState)
+	s.handlermap = make(map[string]*HostData)
 }
 
 // Check whether the Map is empty or not
