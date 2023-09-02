@@ -3,4 +3,4 @@ bin:
 config:
 	./dist/mta configservice
 hosting:
-	./dist/mta hosting
+	./dist/mta hostingservice
