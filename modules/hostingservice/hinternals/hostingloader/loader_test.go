@@ -1,6 +1,7 @@
 package hostingloader
 
 import (
+	"encoding/json"
 	"math/rand"
 	"mta2/mock/mocking"
 	"mta2/modules/hostingservice/hinternals/hostingconstants"
@@ -78,4 +79,38 @@ func TestLoadUpdateStatusforHostName(t *testing.T) {
 		assert.Equal(t, err, nil)
 
 	})
+}
+
+func TestHandlerForLoadUpdateStatusforHostName(t *testing.T) {
+	mockHostMap := mocking.NewMockHostMap()
+	mockHostMap.On("IsEmpty").Return(true)
+	mockHostMap.Put(&utility.Message{
+		Hostname: "dummy_1",
+		Active:   1,
+	})
+	var msg *nats.Msg
+	data, _ := json.Marshal("Roll Back")
+	msg = &nats.Msg{
+		Data: data,
+	}
+	handlerF := HandlerForRollBackDataONConfigDown(mockHostMap)
+	handlerF(msg)
+	assert.Equal(t, true, mockHostMap.IsEmpty())
+}
+
+func TestHandlerForRollBackDataONConfigDown(t *testing.T) {
+	mockHostMap := mocking.NewMockHostMap()
+
+	var msg *nats.Msg
+	message := utility.NewMessage()
+	message.Hostname = "dummy_1"
+	message.Active = 0
+	data, _ := json.Marshal(message)
+	msg = &nats.Msg{
+		Data: data,
+	}
+	handlerF := HandlerForLoadUpdateStatusforHostName(mockHostMap)
+	handlerF(msg)
+
+	assert.Equal(t, true, mockHostMap.Contains("dummy_1"))
 }

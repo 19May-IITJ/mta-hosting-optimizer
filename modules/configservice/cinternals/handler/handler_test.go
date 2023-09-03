@@ -87,8 +87,6 @@ func TestRefreshDataSet(t *testing.T) {
 			Active:   0,
 		})
 		natsConn.On("Publish", constants.UPDATE_PUB_SUBJECT, bytes).Return(nil)
-		// os.Setenv(constants.DBPATH, "/Users/b0268986/mta2/mock/test_data/ipconfig_test.json")
-		// defer os.Unsetenv(constants.DBPATH)
 		rr := httptest.NewRecorder()
 
 		handler := http.HandlerFunc(RefreshDataSet(mockmap, mocklist, natsConn))

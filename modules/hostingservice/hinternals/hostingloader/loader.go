@@ -57,7 +57,25 @@ func LoadActiveIPForHost(nc natsmodule.NATSConnInterface, mp dataconfig.HostingS
 
 // "Async" NATS subscribition for listening to update signal for Config Service caused via its Refresh Data API hit
 func LoadUpdateStatusforHostName(nc natsmodule.NATSConnInterface, mp dataconfig.HostingServiceHostMap) (*nats.Subscription, error) {
-	return nc.Subscribe(hostingconstants.UPDATE_SUB_SUBJECT, func(msg *nats.Msg) {
+	return nc.Subscribe(hostingconstants.UPDATE_SUB_SUBJECT, HandlerForLoadUpdateStatusforHostName(mp))
+}
+
+// "Async" NATS subscribition for listening to down signal of Config Service
+func RollBackDataONConfigDown(nc natsmodule.NATSConnInterface, mp dataconfig.HostingServiceHostMap) (*nats.Subscription, error) {
+	return nc.Subscribe(hostingconstants.HOSTINGCONFIG_SUB_SUBJECT, HandlerForRollBackDataONConfigDown(mp))
+}
+
+func HandlerForRollBackDataONConfigDown(mp dataconfig.HostingServiceHostMap) nats.MsgHandler {
+	return func(msg *nats.Msg) {
+		log.Printf("Received response: %s\n", string(msg.Data))
+		dataconfig.DataMutex.Lock()
+		mp.Clear()
+		dataconfig.DataMutex.Unlock()
+	}
+}
+
+func HandlerForLoadUpdateStatusforHostName(mp dataconfig.HostingServiceHostMap) nats.MsgHandler {
+	return func(msg *nats.Msg) {
 		log.Printf("Received response: %s\n", string(msg.Data))
 		dataconfig.DataMutex.Lock()
 		message := utility.NewMessage()
@@ -65,15 +83,5 @@ func LoadUpdateStatusforHostName(nc natsmodule.NATSConnInterface, mp dataconfig.
 			mp.Put(message)
 		}
 		dataconfig.DataMutex.Unlock()
-	})
-}
-
-// "Async" NATS subscribition for listening to down signal of Config Service
-func RollBackDataONConfigDown(nc natsmodule.NATSConnInterface, mp dataconfig.HostingServiceHostMap) (*nats.Subscription, error) {
-	return nc.Subscribe(hostingconstants.HOSTINGCONFIG_SUB_SUBJECT, func(msg *nats.Msg) {
-		log.Printf("Received response: %s\n", string(msg.Data))
-		dataconfig.DataMutex.Lock()
-		mp.Clear()
-		dataconfig.DataMutex.Unlock()
-	})
+	}
 }
