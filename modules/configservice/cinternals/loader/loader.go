@@ -97,6 +97,7 @@ func decode(byteValue []byte, list *[]*ipconfig.IPConfigData) error {
 	return json.NewDecoder(bytes.NewReader(byteValue)).Decode(list)
 }
 
+// Binary Search wrapper for slices
 func Search(s []*ipconfig.IPConfigData, targetIP string) int {
 	left, right := 0, len(s)-1
 	for left <= right {
@@ -113,6 +114,8 @@ func Search(s []*ipconfig.IPConfigData, targetIP string) int {
 	}
 	return -1
 }
+
+// A TTL to save the data to the file, after 30sec of serving latest request of Refresh Data
 func TTLForFileSaving(ctx context.Context, ipl ipconfig.IPListI, nc natsmodule.NATSConnInterface) {
 	log.Println("Started TTL handler to save in DB")
 	path := os.Getenv(constants.DBPATH)
@@ -140,7 +143,6 @@ func TTLForFileSaving(ctx context.Context, ipl ipconfig.IPListI, nc natsmodule.N
 				return
 			}
 			FLAGTOSAVE = false
-
 			serviceDown := "Roll Back"
 
 			bye, _ := json.Marshal(serviceDown)

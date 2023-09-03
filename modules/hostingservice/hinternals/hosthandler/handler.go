@@ -22,14 +22,14 @@ const (
 // Retrieve Hostnames handler return http handleFunc used to get inefficient hostnames having active no. of IP <= threshold value
 func RetrieveHostnames(nc natsmodule.NATSConnInterface, maxIPs int, result dataconfig.HostingServiceHostMap) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-
+		var err error
 		ctx, cancel := context.WithTimeout(r.Context(), dEFAULTCONTEXTTIMEOUT*time.Second)
 		defer cancel()
 		log.Println("received request Retrieve Hostnames")
 		var inefficientHostnames []string
 		if result.IsEmpty() {
 			counter++
-			hostingloader.LoadActiveIPForHost(nc, result, dEFAULTCONTEXTTIMEOUT+1)
+			err = hostingloader.LoadActiveIPForHost(nc, result, dEFAULTCONTEXTTIMEOUT+1)
 		}
 		inefficientHostnames = dataconfig.GetHostnamesWithMaxIPs(maxIPs, result)
 
@@ -49,7 +49,12 @@ func RetrieveHostnames(nc natsmodule.NATSConnInterface, maxIPs int, result datac
 			if len(inefficientHostnames) > 0 {
 				json.NewEncoder(w).Encode(inefficientHostnames)
 			} else {
-				response := fmt.Sprintf("No available Host have active MTA less than threshold %v", maxIPs)
+				var response string
+				if err == nil {
+					response = fmt.Sprintf("No available Host have active MTA less than threshold %v", maxIPs)
+				} else {
+					response = fmt.Sprintf("seems config service got down and no NATS sub avialable %v", err)
+				}
 				json.NewEncoder(w).Encode(response)
 			}
 		}

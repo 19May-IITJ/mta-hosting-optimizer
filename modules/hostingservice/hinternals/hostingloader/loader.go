@@ -30,6 +30,12 @@ func LoadConfigThreshold() int {
 
 	return x
 }
+
+/*
+"Sync" NATS Request Reply Engine to hit Config at time of service registry
+and API hit of getting /hostnames provided the local cache is empty.
+It panics if the atleast one NATS subsciption either from Config Service end or NATS cli is not present
+*/
 func LoadActiveIPForHost(nc natsmodule.NATSConnInterface, mp dataconfig.HostingServiceHostMap, timeout time.Duration) error {
 	if timeout == 0 {
 		timeout = DEFAULT_TIMEOUT
@@ -49,6 +55,7 @@ func LoadActiveIPForHost(nc natsmodule.NATSConnInterface, mp dataconfig.HostingS
 	return err
 }
 
+// "Async" NATS subscribition for listening to update signal for Config Service caused via its Refresh Data API hit
 func LoadUpdateStatusforHostName(nc natsmodule.NATSConnInterface, mp dataconfig.HostingServiceHostMap) (*nats.Subscription, error) {
 	return nc.Subscribe(hostingconstants.UPDATE_SUB_SUBJECT, func(msg *nats.Msg) {
 		log.Printf("Received response: %s\n", string(msg.Data))
@@ -61,6 +68,7 @@ func LoadUpdateStatusforHostName(nc natsmodule.NATSConnInterface, mp dataconfig.
 	})
 }
 
+// "Async" NATS subscribition for listening to down signal of Config Service
 func RollBackDataONConfigDown(nc natsmodule.NATSConnInterface, mp dataconfig.HostingServiceHostMap) (*nats.Subscription, error) {
 	return nc.Subscribe(hostingconstants.HOSTINGCONFIG_SUB_SUBJECT, func(msg *nats.Msg) {
 		log.Printf("Received response: %s\n", string(msg.Data))
