@@ -53,7 +53,7 @@ func RegisterService(ctx context.Context, serviceport string, kind string, s *ht
 				return err
 			}
 		} else {
-			log.Printf("Error %v \n-*-unable to launch application-*-\n", err)
+			log.Fatalf("Error %v \n-*-unable to launch application-*-\n", err)
 			return err
 		}
 

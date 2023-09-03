@@ -8,6 +8,6 @@ type appConfig struct {
 
 const (
 	appname = "mta-hosting-optimizer"
-	usage   = ""
+	usage   = "uncovers the inefficient servers hosting only few active MTAs depending on threshold value by user"
 	version = "0.0.1"
 )

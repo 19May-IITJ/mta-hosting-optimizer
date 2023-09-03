@@ -30,7 +30,9 @@ func help() *cli.Command {
 				configservice_help()
 			default:
 				fmt.Println()
-				fmt.Printf("Usage : ./mta COMMANDS ")
+				fmt.Printf("Usage : ./mta COMMANDS\n")
+				fmt.Printf("For help on service \nUsage : ./mta help COMMANDS [SERVICE NAME]\n")
+
 				fmt.Println(usage)
 				headerFmt := color.New(color.FgGreen, color.Underline).SprintfFunc()
 				columnFmt := color.New(color.FgYellow).SprintfFunc()

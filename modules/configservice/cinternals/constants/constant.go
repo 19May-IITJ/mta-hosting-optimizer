@@ -5,7 +5,7 @@ import "sync"
 // ENUMS for constant used in service as env variable and Default URL
 const (
 	DBPATH                           = "DBPATH"
-	DEFAULTPATH                      = "/Users/b0268986/mta2/mock/data/ipconfig.json"
+	DEFAULTPATH                      = "/Users/b0268986/mta2/mock/data/ip2.json"
 	Active                           = "1"
 	Inactive                         = "0"
 	Sep                              = "-"
