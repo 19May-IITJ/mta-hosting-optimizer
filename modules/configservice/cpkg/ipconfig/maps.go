@@ -4,20 +4,29 @@ import (
 	"github.com/pkg/errors"
 )
 
-var _ Configuration = (*RegisterMap)(nil)
+var _ ConfigServiceIPMap = (*RegisterMap)(nil)
 
 type RegisterMap struct {
-	handlermap map[string]int
+	handlermap map[string]*HostData
+}
+
+type IPState struct {
+	IP    string
+	State bool
+}
+type HostData struct {
+	HostedIP []string
+	ActiveIP int
 }
 
 // New returns the new map of RegisterMap type
 func NewMap() *RegisterMap {
-	r := RegisterMap{handlermap: make(map[string]int)}
+	r := RegisterMap{handlermap: make(map[string]*HostData)}
 	return &r
 }
 
 // Put Adds the key value pair into the map
-func (s *RegisterMap) Put(key string, value int) {
+func (s *RegisterMap) Put(key string, value *HostData) {
 	s.handlermap[key] = value
 }
 
@@ -28,9 +37,9 @@ func (s *RegisterMap) Contains(key string) bool {
 }
 
 // GetValues returns value associated with the key
-func (s *RegisterMap) GetValue(key string) (values int, err error) {
+func (s *RegisterMap) GetValue(key string) (*HostData, error) {
 	var ok bool
-	values, ok = s.handlermap[key]
+	values, ok := s.handlermap[key]
 	if !ok {
 		return values, errors.Errorf("no value for key %v", key)
 	}
@@ -45,7 +54,7 @@ func (s *RegisterMap) RemoveKey(keys ...string) {
 }
 
 // GetValues returns the underlying map
-func (s *RegisterMap) GetValues() map[string]int {
+func (s *RegisterMap) GetValues() map[string]*HostData {
 	return s.handlermap
 }
 
@@ -56,7 +65,7 @@ func (s *RegisterMap) Size() int {
 
 // Flushes all the key in map
 func (s *RegisterMap) Clear() {
-	s.handlermap = make(map[string]int)
+	s.handlermap = make(map[string]*HostData)
 }
 
 // Check whether the Map is empty or not

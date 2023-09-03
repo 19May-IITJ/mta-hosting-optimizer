@@ -3,13 +3,13 @@ package ipconfig
 var _ IPListI = (*IPConfigs)(nil)
 
 type IPConfigs struct {
-	ipConfigList []*IPConfig
+	ipConfigList []*IPConfigData
 }
 
 // Factory Method returns New IPConfigs object
 func NewIPConfigList() *IPConfigs {
 	return &IPConfigs{
-		ipConfigList: make([]*IPConfig, 0),
+		ipConfigList: make([]*IPConfigData, 0),
 	}
 }
 
@@ -19,7 +19,7 @@ func (c *IPConfigs) GetIPList() *IPConfigs {
 }
 
 // Setter of the IPList
-func (c *IPConfigs) SetIPList(l []*IPConfig) {
+func (c *IPConfigs) SetIPList(l []*IPConfigData) {
 	c.ipConfigList = append(c.ipConfigList, l...)
 }
 
@@ -30,7 +30,7 @@ func (c *IPConfigs) IsEmpty() bool {
 
 // Clears the IPList
 func (c *IPConfigs) Clear() {
-	c.ipConfigList = make([]*IPConfig, 0)
+	c.ipConfigList = make([]*IPConfigData, 0)
 }
 
 // Returns the size of underlying IPlist
@@ -39,6 +39,6 @@ func (c *IPConfigs) Size() int {
 }
 
 // Getter of the underlying list of IP
-func (c *IPConfigs) GetIPValues() []*IPConfig {
+func (c *IPConfigs) GetIPValues() []*IPConfigData {
 	return c.ipConfigList
 }

@@ -1,11 +1,11 @@
 package ipconfig
 
 // Configuration Interfaces provide methods for operating on map of hostname and active mta
-type Configuration interface {
-	Put(string, int)
+type ConfigServiceIPMap interface {
+	Put(string, *HostData)
 	Contains(string) bool
-	GetValue(string) (int, error)
-	GetValues() map[string]int
+	GetValue(string) (*HostData, error)
+	GetValues() map[string]*HostData
 	RemoveKey(...string)
 	Size() int
 	Clear()
@@ -15,8 +15,8 @@ type Configuration interface {
 // IPListI Interfaces provide methods for operating on list of IP retrieved from mock service
 type IPListI interface {
 	GetIPList() *IPConfigs
-	GetIPValues() []*IPConfig
-	SetIPList([]*IPConfig)
+	GetIPValues() []*IPConfigData
+	SetIPList([]*IPConfigData)
 	IsEmpty() bool
 	Clear()
 	Size() int

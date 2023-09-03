@@ -10,12 +10,12 @@ import (
 func TestIPConfigs(t *testing.T) {
 	ip := NewIPConfigList()
 	assert.Equal(t, ip.IsEmpty(), true)
-	l := make([]*IPConfig, 0)
-	l = append(l, &IPConfig{
+	l := make([]*IPConfigData, 0)
+	l = append(l, &IPConfigData{
 		Hostname:    "dummy1",
 		IPAddresses: "127.0.0.1",
 		Status:      true,
-	}, &IPConfig{
+	}, &IPConfigData{
 		Hostname:    "dummy2",
 		IPAddresses: "127.0.0.1",
 		Status:      false,
