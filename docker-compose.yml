@@ -1,0 +1,25 @@
+version: "3"
+services:
+  nats:
+    image: nats:2.9.21
+  configservice:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.config
+    image: configservice-app:1
+    depends_on:
+      - nats
+    ports:
+      - "8020:8020"
+  hostingservice:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.hosting
+    image: hostingservice-app:1
+    depends_on:
+      - nats
+      - configservice
+    ports:
+      - "8010:8010"
+networks:
+  backend:
