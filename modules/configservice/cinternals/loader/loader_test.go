@@ -120,9 +120,13 @@ func TestSearch(t *testing.T) {
 			IPAddresses: "127.0.0.5",
 			Status:      true,
 		})
-	t.Run("Positive Test for Binary Search", func(t *testing.T) {
+	t.Run("Positive Test 1 for Binary Search", func(t *testing.T) {
 		index := Search(l, "127.0.0.5")
 		assert.Equal(t, 4, index)
+	})
+	t.Run("Positive Test 2 for Binary Search", func(t *testing.T) {
+		index := Search(l, "127.0.0.2")
+		assert.Equal(t, 1, index)
 	})
 	t.Run("Negative Test for Binary Search", func(t *testing.T) {
 		index := Search(l, "127.0.0.9")
