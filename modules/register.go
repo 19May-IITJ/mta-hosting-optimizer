@@ -69,19 +69,23 @@ func RegisterService(ctx context.Context, serviceport string, kind string, s *ht
 					log.Fatalf("Error %v \n-*-unable to launch application-*-\n", err)
 					return err
 				}
+				if _, err := hostingloader.RollBackDataONConfigDown(nc, mp); err != nil {
+					log.Fatalf("Error %v \n-*-unable to launch application-*-\n", err)
+					return err
+				}
 				log.Println("ip configurations loaded successfully")
 				// register handlers to endpoints
 				http.HandleFunc("/hostnames", hosthandler.RetrieveHostnames(nc, x, mp))
 				log.Printf("Server listening on port %s\n", serviceport)
 				// Starting server
 				s.Addr = hostAddr() + ":" + serviceport
-
 				go func() {
 					// Start the server and listen for incoming requests.
 					if err := s.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 						fmt.Printf("Error: %v\n", err)
 					}
 				}()
+
 			} else {
 				log.Printf("Error %v \n-*-unable to launch application-*-\n", err)
 				return err

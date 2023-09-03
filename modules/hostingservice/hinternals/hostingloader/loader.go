@@ -39,7 +39,9 @@ func LoadActiveIPForHost(nc natsmodule.NATSConnInterface, mp dataconfig.HostingS
 	if responseMsg != nil {
 		result := make([]*utility.Message, 0)
 		if err := json.Unmarshal(responseMsg.Data, &result); err == nil {
+			dataconfig.DataMutex.Lock()
 			mp.Put(result...)
+			dataconfig.DataMutex.Unlock()
 		} else {
 			log.Println("unable to se-serialze data ", err)
 		}
@@ -55,6 +57,15 @@ func LoadUpdateStatusforHostName(nc natsmodule.NATSConnInterface, mp dataconfig.
 		if err := json.Unmarshal(msg.Data, &message); err == nil {
 			mp.Put(message)
 		}
+		dataconfig.DataMutex.Unlock()
+	})
+}
+
+func RollBackDataONConfigDown(nc natsmodule.NATSConnInterface, mp dataconfig.HostingServiceHostMap) (*nats.Subscription, error) {
+	return nc.Subscribe(hostingconstants.HOSTINGCONFIG_SUB_SUBJECT, func(msg *nats.Msg) {
+		log.Printf("Received response: %s\n", string(msg.Data))
+		dataconfig.DataMutex.Lock()
+		mp.Clear()
 		dataconfig.DataMutex.Unlock()
 	})
 }

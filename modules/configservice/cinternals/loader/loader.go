@@ -140,14 +140,16 @@ func TTLForFileSaving(ctx context.Context, ipl ipconfig.IPListI, nc natsmodule.N
 				return
 			}
 			FLAGTOSAVE = false
-			constants.Datamutex.Unlock()
-			fmt.Println("JSON entry updated successfully!")
+
 			serviceDown := "Roll Back"
 
 			bye, _ := json.Marshal(serviceDown)
 			if err := nc.Publish(constants.CONFIGSERVICE_PUB_SUBJECT, bye); err != nil {
 				log.Println("Error in PUB ", err)
 			}
+			constants.Datamutex.Unlock()
+			log.Println("JSON entry updated successfully!")
+			log.Println("Send Signal to hosting for Roll Back")
 			utility.TaskChan <- serviceDown
 			return
 		case <-Ticker.C:
