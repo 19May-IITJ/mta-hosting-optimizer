@@ -14,7 +14,6 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-
 func TestRetrieveHostnames(t *testing.T) {
 	// Mock NATS connection and HostingServiceHostMap
 	natsConn := new(mocking.MockNATSConn)
@@ -113,15 +112,6 @@ func TestRetrieveHostnames(t *testing.T) {
 		// Assert the response status code
 		assert.Equal(t, http.StatusRequestTimeout, w.Code)
 
-		// Parse the response body
-		// var response []string
-		// err = json.NewDecoder(w.Body).Decode(&response)
-		// if err != nil {
-		// 	t.Fatal(err)
-		// }
-
-		// // Assert the response content
-		// assert.Equal(t, []string{"mta-prod-3"}, response)
 	})
 
 	// Verify that your mocks were called as expected

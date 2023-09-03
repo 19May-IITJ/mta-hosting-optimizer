@@ -68,6 +68,13 @@ func TestLoadConfigIPConfiguration(t *testing.T) {
 			},
 		)
 		mockIPList_expected.SetIPList(l)
+
+		sort.Slice(mockIPList_expected.GetIPValues(), func(i, j int) bool {
+			return mockIPList_expected.GetIPValues()[i].Hostname < mockIPList_expected.GetIPValues()[j].Hostname
+		})
+		sort.Slice(mockIPList.GetIPValues(), func(i, j int) bool {
+			return mockIPList.GetIPValues()[i].Hostname < mockIPList.GetIPValues()[j].Hostname
+		})
 		assert.Equal(t, mockConfig_expected, mockConfig)
 		assert.Equal(t, mockIPList_expected, mockIPList)
 
@@ -177,6 +184,10 @@ func TestTTLForFileSaving(t *testing.T) {
 	sort.Slice(mockIPList_expected.GetIPValues(), func(i, j int) bool {
 		return mockIPList_expected.GetIPValues()[i].Hostname < mockIPList_expected.GetIPValues()[j].Hostname
 	})
+	sort.Slice(mocklist.GetIPValues(), func(i, j int) bool {
+		return mocklist.GetIPValues()[i].Hostname < mocklist.GetIPValues()[j].Hostname
+	})
+
 	assert.Equal(t, mockIPList_expected, mocklist)
 
 	// Add assertions and validations based on your specific requirements

@@ -69,24 +69,7 @@ func TestLoadActiveIPForHost(t *testing.T) {
 func TestLoadUpdateStatusforHostName(t *testing.T) {
 	mockNATSConn := new(mocking.MockNATSConn)
 	mockHostMap := mocking.NewMockHostMap()
-	// expectedHostMap := dataconfig.NewHostMap()
 
-	// var v nats.MsgHandler
-	// messageToRecieve := []byte(`{"hostname":"mta-prod-1","active":2}`)
-	// v = func(msg *nats.Msg) {
-	// 	// Simulate receiving a message
-	// 	mockHostMap.On("Put", mock.AnythingOfType("*utility.Message")).Return()
-	// 	// Invoke the callback function
-	// 	message := utility.NewMessage()
-
-	// 	if err := json.Unmarshal(msg.Data, &message); err == nil {
-	// 		mockHostMap.Put(message)
-	// 	}
-	// }
-	// v(&nats.Msg{
-	// 	Data:    messageToRecieve,
-	// 	Subject: hostingconstants.UPDATE_SUB_SUBJECT,
-	// })
 	t.Run("Positive Test for LoadUpdateStatusforHostName", func(t *testing.T) {
 
 		mockNATSConn.On("Subscribe", hostingconstants.UPDATE_SUB_SUBJECT, mock.AnythingOfType("nats.MsgHandler")).
