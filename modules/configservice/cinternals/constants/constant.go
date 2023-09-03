@@ -10,6 +10,7 @@ const (
 	Inactive                         = "0"
 	Sep                              = "-"
 	UPDATE_PUB_SUBJECT               = "hosting.update"
+	CONFIGSERVICE_PUB_SUBJECT        = "config.down"
 	INVOKE_SUB_SUBJECT_CONFIGSERVICE = "hosting.invoke"
 )
 

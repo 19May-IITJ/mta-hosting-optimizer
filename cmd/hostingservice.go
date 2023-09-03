@@ -35,7 +35,10 @@ func hostingservice(a *appConfig) *cli.Command {
 			port := os.Getenv(utility.HOSTINGSERVICE_PORT)
 
 			if port != "" && utility.NATS_ADD != "" {
-				modules.RegisterService(ctx, port, utility.HOSTINGSERVICE, server)
+				err := modules.RegisterService(ctx, port, utility.HOSTINGSERVICE, server)
+				if err != nil {
+					return err
+				}
 			} else {
 				//Logger Block
 				log.Println("Unable to start Hosting Service")

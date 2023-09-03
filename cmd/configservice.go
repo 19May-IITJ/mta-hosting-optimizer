@@ -34,7 +34,10 @@ func configservice(a *appConfig) *cli.Command {
 			utility.NATS_ADD = os.Getenv(utility.NATS_URI)
 			port := os.Getenv(utility.CONFIGSERVICE_PORT)
 			if port != "" && utility.NATS_ADD != "" {
-				modules.RegisterService(ctx, port, utility.CONFIGSERVICE, server)
+				err := modules.RegisterService(ctx, port, utility.CONFIGSERVICE, server)
+				if err != nil {
+					return err
+				}
 			} else {
 				//Logger Block
 				log.Println("Unable to start Config Service")

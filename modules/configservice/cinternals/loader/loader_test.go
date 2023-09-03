@@ -2,9 +2,12 @@ package loader
 
 import (
 	"context"
+	"encoding/json"
+	"mta2/mock/mocking"
 	"mta2/modules/configservice/cinternals/constants"
 	"mta2/modules/configservice/cpkg/ipconfig"
 	"os"
+	"sort"
 	"testing"
 	"time"
 
@@ -159,20 +162,22 @@ func TestTTLForFileSaving(t *testing.T) {
 	Ticker = time.NewTicker(100 * time.Millisecond)
 	defer Ticker.Stop()
 	FLAGTOSAVE = true
-
+	natsConn := new(mocking.MockNATSConn)
+	s := "Roll Back"
+	bye, _ := json.Marshal(s)
+	natsConn.On("Publish", constants.CONFIGSERVICE_PUB_SUBJECT, bye).Return(nil)
 	// Execute the TTLForFileSaving function in a goroutine
-	go TTLForFileSaving(ctx, mocklist)
+	go TTLForFileSaving(ctx, mocklist, natsConn)
 
 	// Wait for a while to allow the function to execute
 	time.Sleep(500 * time.Millisecond)
-
-	cancel()
 	LoadConfigIPConfiguration(mockMap, mockIPList_expected)
-
+	// fmt.Println(mockIPList_expected.GetIPValues())
+	// fmt.Println(mocklist.GetIPValues())
+	sort.Slice(mockIPList_expected.GetIPValues(), func(i, j int) bool {
+		return mockIPList_expected.GetIPValues()[i].Hostname < mockIPList_expected.GetIPValues()[j].Hostname
+	})
 	assert.Equal(t, mockIPList_expected, mocklist)
-
-	// Wait for the function to complete
-	time.Sleep(100 * time.Millisecond)
 
 	// Add assertions and validations based on your specific requirements
 }

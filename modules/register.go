@@ -22,7 +22,7 @@ import (
 	"github.com/nats-io/nats.go"
 )
 
-func RegisterService(ctx context.Context, serviceport string, kind string, s *http.Server) {
+func RegisterService(ctx context.Context, serviceport string, kind string, s *http.Server) error {
 	switch kind {
 	case utility.CONFIGSERVICE:
 		result := ipconfig.NewMap()
@@ -34,7 +34,7 @@ func RegisterService(ctx context.Context, serviceport string, kind string, s *ht
 			// register handlers to endpoints
 			if nc, err := nats.Connect(utility.NATS_ADD); err == nil {
 				loader.Ticker = time.NewTicker(handler.TTL * time.Second)
-				go loader.TTLForFileSaving(ctx, list)
+				go loader.TTLForFileSaving(ctx, list, nc)
 				configservice.PublishInvokeMessagetoNATS(result, nc)
 				http.HandleFunc("/refresh", handler.RefreshDataSet(result, list, nc))
 				log.Printf("Server listening on port %s\n", serviceport)
@@ -50,10 +50,13 @@ func RegisterService(ctx context.Context, serviceport string, kind string, s *ht
 
 			} else {
 				log.Printf("Error %v \n-*-unable to launch application-*-\n", err)
+				return err
 			}
 		} else {
 			log.Printf("Error %v \n-*-unable to launch application-*-\n", err)
+			return err
 		}
+
 	case utility.HOSTINGSERVICE:
 
 		mp := dataconfig.NewHostMap()
@@ -64,6 +67,7 @@ func RegisterService(ctx context.Context, serviceport string, kind string, s *ht
 				// Create HTTP server
 				if _, err := hostingloader.LoadUpdateStatusforHostName(nc, mp); err != nil {
 					log.Fatalf("Error %v \n-*-unable to launch application-*-\n", err)
+					return err
 				}
 				log.Println("ip configurations loaded successfully")
 				// register handlers to endpoints
@@ -80,9 +84,14 @@ func RegisterService(ctx context.Context, serviceport string, kind string, s *ht
 				}()
 			} else {
 				log.Printf("Error %v \n-*-unable to launch application-*-\n", err)
+				return err
 			}
+		} else {
+			log.Printf("Error %v \n-*-unable to launch application-*-\n", err)
+			return err
 		}
 	}
+	return nil
 }
 func hostAddr() string {
 	addrs, err := net.InterfaceAddrs()

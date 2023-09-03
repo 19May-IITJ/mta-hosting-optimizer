@@ -1,12 +1,14 @@
 package loader
 
 import (
+	"bytes"
 	"context"
 	"encoding/json"
 	"fmt"
 	"log"
 	"mta2/modules/configservice/cinternals/constants"
 	"mta2/modules/configservice/cpkg/ipconfig"
+	"mta2/modules/natsmodule"
 	"mta2/modules/utility"
 	"strings"
 	"time"
@@ -34,17 +36,17 @@ func LoadConfigIPConfiguration(c ipconfig.ConfigServiceIPMap, ips ipconfig.IPLis
 		path = constants.DEFAULTPATH
 	}
 	if absPath, err = filepath.Abs(path); err != nil {
-		log.Printf("Error %v\n", err)
+		log.Printf("Error Abs %v\n", err)
 		return err
 	}
 	if jsonFile, err = os.Open(absPath); err != nil {
 		defer jsonFile.Close()
-		log.Printf("Error %v\n", err)
+		log.Printf("Error Open %v\n", err)
 		return err
 	}
 	defer jsonFile.Close()
 	if byteValue, err = os.ReadFile(jsonFile.Name()); err != nil {
-		log.Printf("Error %v\n", err)
+		log.Printf("Error ReadFile %v\n", err)
 		return err
 	}
 	list := ips.GetIPValues()
@@ -84,7 +86,7 @@ func LoadConfigIPConfiguration(c ipconfig.ConfigServiceIPMap, ips ipconfig.IPLis
 
 		return nil
 	} else {
-		log.Printf("Error %v\n", err)
+		log.Printf("Error Unmarshal %v\n", err)
 		return err
 	}
 
@@ -92,7 +94,7 @@ func LoadConfigIPConfiguration(c ipconfig.ConfigServiceIPMap, ips ipconfig.IPLis
 
 // wrapper over Unmarshal JSON
 func decode(byteValue []byte, list *[]*ipconfig.IPConfigData) error {
-	return json.Unmarshal(byteValue, &list)
+	return json.NewDecoder(bytes.NewReader(byteValue)).Decode(list)
 }
 
 func Search(s []*ipconfig.IPConfigData, targetIP string) int {
@@ -111,7 +113,7 @@ func Search(s []*ipconfig.IPConfigData, targetIP string) int {
 	}
 	return -1
 }
-func TTLForFileSaving(ctx context.Context, ipl ipconfig.IPListI) {
+func TTLForFileSaving(ctx context.Context, ipl ipconfig.IPListI, nc natsmodule.NATSConnInterface) {
 	log.Println("Started TTL handler to save in DB")
 	path := os.Getenv(constants.DBPATH)
 	if path == "" {
@@ -140,7 +142,13 @@ func TTLForFileSaving(ctx context.Context, ipl ipconfig.IPListI) {
 			FLAGTOSAVE = false
 			constants.Datamutex.Unlock()
 			fmt.Println("JSON entry updated successfully!")
-			utility.TaskChan <- "Roll Back"
+			serviceDown := "Roll Back"
+
+			bye, _ := json.Marshal(serviceDown)
+			if err := nc.Publish(constants.CONFIGSERVICE_PUB_SUBJECT, bye); err != nil {
+				log.Println("Error in PUB ", err)
+			}
+			utility.TaskChan <- serviceDown
 			return
 		case <-Ticker.C:
 			log.Println("ticker hit")

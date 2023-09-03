@@ -2,6 +2,7 @@ package dataconfig
 
 import (
 	"mta2/modules/utility"
+	"sort"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -28,11 +29,17 @@ func TestGetHostnamesWithMaxIPs(t *testing.T) {
 	inefficientHostname := GetHostnamesWithMaxIPs(1, mp)
 	t.Run("Positive Test for GetHostnamesWithMaxIPs", func(t *testing.T) {
 		expectPositivehostname := []string{"dummy2", "dummy3"}
+		sort.Slice(inefficientHostname, func(i, j int) bool {
+			return inefficientHostname[i] < inefficientHostname[j]
+		})
 		assert.Equal(t, expectPositivehostname, inefficientHostname)
 	})
 
 	t.Run("Negative Test for GetHostnamesWithMaxIPs", func(t *testing.T) {
 		expectNegativeTestResulthostname := []string{"dummy1", "dummy3"}
+		sort.Slice(inefficientHostname, func(i, j int) bool {
+			return inefficientHostname[i] < inefficientHostname[j]
+		})
 		assert.NotEqual(t, expectNegativeTestResulthostname, inefficientHostname)
 	})
 

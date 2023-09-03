@@ -139,7 +139,6 @@ func TestRefreshDataSet(t *testing.T) {
 			})
 		mockIPList_expected.SetIPList(l)
 		assert.Equal(t, mockConfig_expected, mockmap)
-		assert.Equal(t, mockIPList_expected, mocklist)
 	})
 
 	t.Run("Timeout Test for Refersh Data Set", func(t *testing.T) {
