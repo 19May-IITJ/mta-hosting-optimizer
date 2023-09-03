@@ -15,6 +15,7 @@ import (
 	"time"
 
 	"github.com/fatih/color"
+	"github.com/nats-io/nats.go"
 	"github.com/rodaine/table"
 	"github.com/urfave/cli/v2"
 )
@@ -67,7 +68,16 @@ func hostingservice(a *appConfig) *cli.Command {
 }
 
 func beforeHostingService(c *cli.Context) error {
-
+	utility.NATS_ADD = os.Getenv(utility.NATS_URI)
+	for i := 1; i <= 5; i++ {
+		_, err := nats.Connect(utility.NATS_ADD)
+		log.Printf("Attmept %v to Connect to NATS %s\n", i, utility.NATS_ADD)
+		if err == nil {
+			break
+		} else {
+			time.Sleep(4 * time.Second)
+		}
+	}
 	return nil
 }
 func hostingservice_help() {
