@@ -5,7 +5,7 @@ import "sync"
 // ENUMS for constant used in service as env variable and Default URL
 const (
 	DBPATH                           = "DBPATH"
-	DEFAULTPATH                      = "/tmp/code/mta-hosting-optimizer/mock/data/ip2.json"
+	DEFAULTPATH                      = "/tmp/code/mock/data/ip2.json"
 	Active                           = "1"
 	Inactive                         = "0"
 	Sep                              = "-"
