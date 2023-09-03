@@ -23,7 +23,15 @@ func TestPublishInvokeMessagetoNATS(t *testing.T) {
 
 func TestHandlerMethodForPublishInvokeMessagetoNATS(t *testing.T) {
 	s := make([]*utility.Message, 0)
+	s = append(s, &utility.Message{
+		Hostname: "dummy_1",
+		Active:   1,
+	})
 	mockMap := ipconfig.NewMap()
+	mockMap.Put("dummy_1", &ipconfig.HostData{
+		HostedIP: []string{"127.0.0.1-1"},
+		ActiveIP: 1,
+	})
 	natsConn := new(mocking.MockNATSConn)
 	bytes, _ := json.Marshal(s)
 
