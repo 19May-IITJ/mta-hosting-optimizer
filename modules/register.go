@@ -33,8 +33,8 @@ func RegisterService(ctx context.Context, serviceport string, kind string, s *ht
 			log.Println("ip configurations loaded successfully")
 			// register handlers to endpoints
 			if nc, err := nats.Connect(utility.NATS_ADD); err == nil {
-				handler.Ticker = time.NewTicker(handler.TTL * time.Second)
-				go handler.TTLForFileSaving(ctx, list)
+				loader.Ticker = time.NewTicker(handler.TTL * time.Second)
+				go loader.TTLForFileSaving(ctx, list)
 				configservice.PublishInvokeMessagetoNATS(result, nc)
 				http.HandleFunc("/refresh", handler.RefreshDataSet(result, list, nc))
 				log.Printf("Server listening on port %s\n", serviceport)

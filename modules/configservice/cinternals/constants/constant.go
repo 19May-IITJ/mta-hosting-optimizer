@@ -1,5 +1,7 @@
 package constants
 
+import "sync"
+
 // ENUMS for constant used in service as env variable and Default URL
 const (
 	DBPATH                           = "DBPATH"
@@ -9,4 +11,8 @@ const (
 	Sep                              = "-"
 	UPDATE_PUB_SUBJECT               = "hosting.update"
 	INVOKE_SUB_SUBJECT_CONFIGSERVICE = "hosting.invoke"
+)
+
+var (
+	Datamutex sync.Mutex
 )

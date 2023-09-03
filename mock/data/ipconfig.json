@@ -2,7 +2,7 @@
   {
     "hostname": "mta-prod-1",
     "ipAddresses": "127.0.0.1",
-    "status": true
+    "status": false
   },
   {
     "hostname": "mta-prod-1",

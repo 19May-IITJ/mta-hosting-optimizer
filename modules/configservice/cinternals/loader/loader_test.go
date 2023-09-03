@@ -1,10 +1,12 @@
 package loader
 
 import (
+	"context"
 	"mta2/modules/configservice/cinternals/constants"
 	"mta2/modules/configservice/cpkg/ipconfig"
 	"os"
 	"testing"
+	"time"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -22,16 +24,16 @@ func TestLoadConfigIPConfiguration(t *testing.T) {
 		mockConfig_expected := ipconfig.NewMap()
 		mockIPList_expected := ipconfig.NewIPConfigList()
 		mockConfig_expected.Put("dummy_1", &ipconfig.HostData{
-			HostedIP: []string{"127.0.0.1-0", "127.0.0.2-0", "127.0.0.3-1"},
+			HostedIP: []string{"127.0.0.1-1"},
 			ActiveIP: 1,
 		})
 		mockConfig_expected.Put("dummy_2", &ipconfig.HostData{
-			HostedIP: []string{"127.0.0.4-1", "127.0.0.5-1"},
-			ActiveIP: 2,
+			HostedIP: []string{"127.0.0.2-0"},
+			ActiveIP: 0,
 		})
 		mockConfig_expected.Put("dummy_3", &ipconfig.HostData{
-			HostedIP: []string{"127.0.0.6-0"},
-			ActiveIP: 0,
+			HostedIP: []string{"127.0.0.3-0", "127.0.0.4-1", "127.0.0.5-1"},
+			ActiveIP: 2,
 		})
 
 		l := make([]*ipconfig.IPConfigData, 0)
@@ -39,32 +41,27 @@ func TestLoadConfigIPConfiguration(t *testing.T) {
 			&ipconfig.IPConfigData{
 				Hostname:    "dummy_1",
 				IPAddresses: "127.0.0.1",
-				Status:      false,
+				Status:      true,
 			},
 			&ipconfig.IPConfigData{
-				Hostname:    "dummy_1",
+				Hostname:    "dummy_2",
 				IPAddresses: "127.0.0.2",
 				Status:      false,
 			},
 			&ipconfig.IPConfigData{
-				Hostname:    "dummy_1",
+				Hostname:    "dummy_3",
 				IPAddresses: "127.0.0.3",
-				Status:      true,
+				Status:      false,
 			},
 			&ipconfig.IPConfigData{
-				Hostname:    "dummy_2",
+				Hostname:    "dummy_3",
 				IPAddresses: "127.0.0.4",
 				Status:      true,
 			},
 			&ipconfig.IPConfigData{
-				Hostname:    "dummy_2",
+				Hostname:    "dummy_3",
 				IPAddresses: "127.0.0.5",
 				Status:      true,
-			},
-			&ipconfig.IPConfigData{
-				Hostname:    "dummy_3",
-				IPAddresses: "127.0.0.6",
-				Status:      false,
 			},
 		)
 		mockIPList_expected.SetIPList(l)
@@ -85,4 +82,97 @@ func TestLoadConfigIPConfiguration(t *testing.T) {
 		err := LoadConfigIPConfiguration(mockConfig, mockIPList)
 		assert.NoError(t, err)
 	})
+}
+
+func TestSearch(t *testing.T) {
+	l := make([]*ipconfig.IPConfigData, 0)
+	l = append(l, &ipconfig.IPConfigData{
+		Hostname:    "dummy_1",
+		IPAddresses: "127.0.0.1",
+		Status:      true,
+	}, &ipconfig.IPConfigData{
+		Hostname:    "dummy_2",
+		IPAddresses: "127.0.0.2",
+		Status:      false,
+	},
+		&ipconfig.IPConfigData{
+			Hostname:    "dummy_3",
+			IPAddresses: "127.0.0.3",
+			Status:      false,
+		},
+		&ipconfig.IPConfigData{
+			Hostname:    "dummy_3",
+			IPAddresses: "127.0.0.4",
+			Status:      true,
+		},
+		&ipconfig.IPConfigData{
+			Hostname:    "dummy_3",
+			IPAddresses: "127.0.0.5",
+			Status:      true,
+		})
+	t.Run("Positive Test for Binary Search", func(t *testing.T) {
+		index := Search(l, "127.0.0.5")
+		assert.Equal(t, 4, index)
+	})
+	t.Run("Negative Test for Binary Search", func(t *testing.T) {
+		index := Search(l, "127.0.0.9")
+		assert.Equal(t, -1, index)
+	})
+}
+
+func TestTTLForFileSaving(t *testing.T) {
+	mockMap := ipconfig.NewMap()
+	mockIPList_expected := ipconfig.NewIPConfigList()
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+	os.Setenv(constants.DBPATH, "/Users/b0268986/mta2/mock/test_data/ipconfig_test.json")
+	defer os.Unsetenv(constants.DBPATH)
+	// Initialize a mock IPListI
+	mocklist := ipconfig.NewIPConfigList()
+	l := make([]*ipconfig.IPConfigData, 0)
+	l = append(l, &ipconfig.IPConfigData{
+		Hostname:    "dummy_1",
+		IPAddresses: "127.0.0.1",
+		Status:      true,
+	}, &ipconfig.IPConfigData{
+		Hostname:    "dummy_2",
+		IPAddresses: "127.0.0.2",
+		Status:      false,
+	},
+		&ipconfig.IPConfigData{
+			Hostname:    "dummy_3",
+			IPAddresses: "127.0.0.3",
+			Status:      false,
+		},
+		&ipconfig.IPConfigData{
+			Hostname:    "dummy_3",
+			IPAddresses: "127.0.0.4",
+			Status:      true,
+		},
+		&ipconfig.IPConfigData{
+			Hostname:    "dummy_3",
+			IPAddresses: "127.0.0.5",
+			Status:      true,
+		})
+	mocklist.SetIPList(l)
+
+	Ticker = time.NewTicker(100 * time.Millisecond)
+	defer Ticker.Stop()
+	FLAGTOSAVE = true
+
+	// Execute the TTLForFileSaving function in a goroutine
+	go TTLForFileSaving(ctx, mocklist)
+
+	// Wait for a while to allow the function to execute
+	time.Sleep(500 * time.Millisecond)
+
+	cancel()
+	LoadConfigIPConfiguration(mockMap, mockIPList_expected)
+
+	assert.Equal(t, mockIPList_expected, mocklist)
+
+	// Wait for the function to complete
+	time.Sleep(100 * time.Millisecond)
+
+	// Add assertions and validations based on your specific requirements
 }

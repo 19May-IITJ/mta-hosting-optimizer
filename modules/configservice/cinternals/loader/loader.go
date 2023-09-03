@@ -1,15 +1,24 @@
 package loader
 
 import (
+	"context"
 	"encoding/json"
+	"fmt"
 	"log"
 	"mta2/modules/configservice/cinternals/constants"
 	"mta2/modules/configservice/cpkg/ipconfig"
+	"mta2/modules/utility"
 	"strings"
+	"time"
 
 	"os"
 	"path/filepath"
 	"sort"
+)
+
+var (
+	Ticker     *time.Ticker
+	FLAGTOSAVE bool
 )
 
 // Load Config IPConfiguration loads the IP configuration Data based on DBPATH env variable
@@ -101,4 +110,60 @@ func Search(s []*ipconfig.IPConfigData, targetIP string) int {
 		}
 	}
 	return -1
+}
+func TTLForFileSaving(ctx context.Context, ipl ipconfig.IPListI) {
+	log.Println("Started TTL handler to save in DB")
+	path := os.Getenv(constants.DBPATH)
+	if path == "" {
+		path = constants.DEFAULTPATH
+	}
+	for {
+		select {
+		case <-ctx.Done():
+			Ticker.Stop()
+			log.Println("Got response to shutdown TTL")
+			constants.Datamutex.Lock()
+
+			// Marshal the entire updated data
+			updatedData, err := json.MarshalIndent(ipl.GetIPValues(), "", "  ")
+			if err != nil {
+				fmt.Println("Error marshaling JSON:", err)
+				return
+			}
+
+			// Write back the entire JSON file with the updated entry
+			err = os.WriteFile(path, updatedData, 0644)
+			if err != nil {
+				fmt.Println("Error writing file:", err)
+				return
+			}
+			FLAGTOSAVE = false
+			constants.Datamutex.Unlock()
+			fmt.Println("JSON entry updated successfully!")
+			utility.TaskChan <- "Roll Back"
+			return
+		case <-Ticker.C:
+			log.Println("ticker hit")
+			if FLAGTOSAVE {
+				constants.Datamutex.Lock()
+
+				// Marshal the entire updated data
+				updatedData, err := json.MarshalIndent(ipl.GetIPValues(), "", "  ")
+				if err != nil {
+					fmt.Println("Error marshaling JSON:", err)
+					return
+				}
+
+				// Write back the entire JSON file with the updated entry
+				err = os.WriteFile(path, updatedData, 0644)
+				if err != nil {
+					fmt.Println("Error writing file:", err)
+					return
+				}
+				FLAGTOSAVE = false
+				constants.Datamutex.Unlock()
+				fmt.Println("JSON entry updated successfully!")
+			}
+		}
+	}
 }
