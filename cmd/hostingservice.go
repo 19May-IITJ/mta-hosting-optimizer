@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"mta2/modules"
+	"mta2/modules/hostingservice/hinternals/hostingconstants"
 	"mta2/modules/utility"
 	"net/http"
 	"os"
@@ -13,6 +14,8 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/fatih/color"
+	"github.com/rodaine/table"
 	"github.com/urfave/cli/v2"
 )
 
@@ -68,5 +71,17 @@ func beforeHostingService(c *cli.Context) error {
 	return nil
 }
 func hostingservice_help() {
+	fmt.Println()
+	fmt.Printf("Usage : ./mta %s  \n %s \n", utility.HOSTINGSERVICE, utility.HOSTINGSERVICEUSAAGE)
 
+	headerFmt := color.New(color.FgGreen, color.Underline).SprintfFunc()
+	columnFmt := color.New(color.FgYellow).SprintfFunc()
+	fmt.Println()
+	fmt.Println("ENV VARIABLE:")
+	tblenv := table.New("ENV VARIABLE", "Description")
+	tblenv.WithHeaderFormatter(headerFmt).WithFirstColumnFormatter(columnFmt)
+	tblenv.AddRow(utility.HOSTINGSERVICE_PORT, "service port for the hosting service on which service is listening")
+	tblenv.AddRow(hostingconstants.MTA_THRESHOLD, "minimum no. of MTA(default 1) on server less than which user mark server as inefficient")
+	tblenv.AddRow(utility.NATS_URI, "address of NATS middleware eg. nats://localhost:4222")
+	tblenv.Print()
 }

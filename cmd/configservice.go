@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"mta2/modules"
+	"mta2/modules/configservice/cinternals/constants"
 	"mta2/modules/utility"
 	"net/http"
 	"os"
@@ -13,6 +14,8 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/fatih/color"
+	"github.com/rodaine/table"
 	"github.com/urfave/cli/v2"
 )
 
@@ -72,5 +75,17 @@ func beforeConfigService(c *cli.Context) error {
 	return nil
 }
 func configservice_help() {
+	fmt.Println()
+	fmt.Printf("Usage : ./mta %s  \n %s \n", utility.CONFIGSERVICE, utility.CONFIGSERVICEUSAGE)
 
+	headerFmt := color.New(color.FgGreen, color.Underline).SprintfFunc()
+	columnFmt := color.New(color.FgYellow).SprintfFunc()
+	fmt.Println()
+	fmt.Println("ENV VARIABLE:")
+	tblenv := table.New("ENV VARIABLE", "Description")
+	tblenv.WithHeaderFormatter(headerFmt).WithFirstColumnFormatter(columnFmt)
+	tblenv.AddRow(utility.CONFIGSERVICE_PORT, "service port for the config service on which service is listening")
+	tblenv.AddRow(constants.DBPATH, "absolute location of JSON file (default is <workdir>/mock/data/ip2.json)")
+	tblenv.AddRow(utility.NATS_URI, "address of NATS middleware eg. nats://localhost:4222")
+	tblenv.Print()
 }
