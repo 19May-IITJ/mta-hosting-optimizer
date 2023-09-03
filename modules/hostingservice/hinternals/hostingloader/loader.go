@@ -5,6 +5,7 @@ import (
 	"log"
 	"mta2/modules/hostingservice/hinternals/hostingconstants"
 	"mta2/modules/hostingservice/pkg/dataconfig"
+	"mta2/modules/natsmodule"
 	"mta2/modules/utility"
 	"os"
 	"strconv"
@@ -29,15 +30,12 @@ func LoadConfigThreshold() int {
 
 	return x
 }
-func LoadActiveIPForHost(nc *nats.Conn, mp dataconfig.HostingServiceHostMap, timeout time.Duration) error {
+func LoadActiveIPForHost(nc natsmodule.NATSConnInterface, mp dataconfig.HostingServiceHostMap, timeout time.Duration) error {
 	if timeout == 0 {
 		timeout = DEFAULT_TIMEOUT
 	}
 	requestMsg := []byte("Hello, Config Service!")
 	responseMsg, err := nc.Request(hostingconstants.INVOKE_PUB_SUBJECT, requestMsg, time.Second*timeout)
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
 	if responseMsg != nil {
 		result := make([]*utility.Message, 0)
 		if err := json.Unmarshal(responseMsg.Data, &result); err == nil {
@@ -49,8 +47,8 @@ func LoadActiveIPForHost(nc *nats.Conn, mp dataconfig.HostingServiceHostMap, tim
 	return err
 }
 
-func LoadUpdateStatusforHostName(nc *nats.Conn, mp dataconfig.HostingServiceHostMap) {
-	_, err := nc.Subscribe(hostingconstants.UPDATE_SUB_SUBJECT, func(msg *nats.Msg) {
+func LoadUpdateStatusforHostName(nc natsmodule.NATSConnInterface, mp dataconfig.HostingServiceHostMap) (*nats.Subscription, error) {
+	return nc.Subscribe(hostingconstants.UPDATE_SUB_SUBJECT, func(msg *nats.Msg) {
 		log.Printf("Received response: %s\n", string(msg.Data))
 		dataconfig.DataMutex.Lock()
 		message := utility.NewMessage()
@@ -59,7 +57,4 @@ func LoadUpdateStatusforHostName(nc *nats.Conn, mp dataconfig.HostingServiceHost
 		}
 		dataconfig.DataMutex.Unlock()
 	})
-	if err != nil {
-		log.Fatal(err)
-	}
 }

@@ -62,7 +62,9 @@ func RegisterService(ctx context.Context, serviceport string, kind string, s *ht
 		if nc, err := nats.Connect(utility.NATS_ADD); err == nil {
 			if err := hostingloader.LoadActiveIPForHost(nc, mp, 0); err == nil || err == nats.ErrTimeout {
 				// Create HTTP server
-				hostingloader.LoadUpdateStatusforHostName(nc, mp)
+				if _, err := hostingloader.LoadUpdateStatusforHostName(nc, mp); err != nil {
+					log.Fatalf("Error %v \n-*-unable to launch application-*-\n", err)
+				}
 				log.Println("ip configurations loaded successfully")
 				// register handlers to endpoints
 				http.HandleFunc("/hostnames", hosthandler.RetrieveHostnames(nc, x, mp))

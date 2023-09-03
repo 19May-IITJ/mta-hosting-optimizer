@@ -37,9 +37,9 @@ func (s *RegisterMap) Contains(key string) bool {
 }
 
 // GetValues returns value associated with the key
-func (s *RegisterMap) GetValue(key string) (values *HostData, err error) {
+func (s *RegisterMap) GetValue(key string) (*HostData, error) {
 	var ok bool
-	values, ok = s.handlermap[key]
+	values, ok := s.handlermap[key]
 	if !ok {
 		return values, errors.Errorf("no value for key %v", key)
 	}

@@ -1,33 +1,14 @@
 package loader
 
 import (
-	"math/rand"
-	"mta2/modules/configservice/internal/constants"
-	"mta2/modules/configservice/pkg/ipconfig"
+	"mta2/modules/configservice/cinternals/constants"
+	"mta2/modules/configservice/cpkg/ipconfig"
 	"os"
-	"strconv"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 )
 
-func TestLoadConfigThreshold(t *testing.T) {
-	t.Run("Test with default threshold value", func(t *testing.T) {
-		os.Setenv(constants.MTA_THRESHOLD, "")
-		defer os.Unsetenv(constants.MTA_THRESHOLD)
-		result := LoadConfigThreshold()
-		assert.Equal(t, 1, result)
-	})
-	t.Run("Test with random threshold value", func(t *testing.T) {
-		testvalue := strconv.Itoa(rand.Int())
-		os.Setenv(constants.MTA_THRESHOLD, testvalue)
-		defer os.Unsetenv(constants.MTA_THRESHOLD)
-		testthreshold, _ := strconv.Atoi(testvalue)
-		result := LoadConfigThreshold()
-		assert.Equal(t, testthreshold, result)
-	})
-
-}
 func TestLoadConfigIPConfiguration(t *testing.T) {
 	// Create mock ipconfig.Configuration and ipconfig.IPList objects
 	mockConfig := ipconfig.NewMap()
@@ -40,9 +21,19 @@ func TestLoadConfigIPConfiguration(t *testing.T) {
 		assert.NoError(t, err)
 		mockConfig_expected := ipconfig.NewMap()
 		mockIPList_expected := ipconfig.NewIPConfigList()
-		mockConfig_expected.Put("dummy_1", &i)
-		mockConfig_expected.Put("dummy_2", 2)
-		mockConfig_expected.Put("dummy_3", 0)
+		mockConfig_expected.Put("dummy_1", &ipconfig.HostData{
+			HostedIP: []string{"127.0.0.1-0", "127.0.0.2-0", "127.0.0.3-1"},
+			ActiveIP: 1,
+		})
+		mockConfig_expected.Put("dummy_2", &ipconfig.HostData{
+			HostedIP: []string{"127.0.0.4-1", "127.0.0.5-1"},
+			ActiveIP: 2,
+		})
+		mockConfig_expected.Put("dummy_3", &ipconfig.HostData{
+			HostedIP: []string{"127.0.0.6-0"},
+			ActiveIP: 0,
+		})
+
 		l := make([]*ipconfig.IPConfigData, 0)
 		l = append(l,
 			&ipconfig.IPConfigData{

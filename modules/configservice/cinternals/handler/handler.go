@@ -8,6 +8,7 @@ import (
 	"log"
 	"mta2/modules/configservice/cinternals/constants"
 	"mta2/modules/configservice/cinternals/loader"
+	"mta2/modules/natsmodule"
 	"os"
 
 	"mta2/modules/configservice/cpkg/ipconfig"
@@ -19,8 +20,6 @@ import (
 	"time"
 
 	"golang.org/x/exp/slices"
-
-	"github.com/nats-io/nats.go"
 )
 
 var (
@@ -34,7 +33,7 @@ const (
 )
 
 // Refresh DataSet handler return http handleFunc used to reload all ip & hostname data and active ip's under hostname
-func RefreshDataSet(c ipconfig.ConfigServiceIPMap, ipl ipconfig.IPListI, nc *nats.Conn) http.HandlerFunc {
+func RefreshDataSet(c ipconfig.ConfigServiceIPMap, ipl ipconfig.IPListI, nc natsmodule.NATSConnInterface) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		ctx, cancel := context.WithTimeout(r.Context(), 5*time.Second)
 		defer cancel()

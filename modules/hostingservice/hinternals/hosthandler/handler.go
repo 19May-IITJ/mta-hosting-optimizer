@@ -7,11 +7,10 @@ import (
 	"log"
 	"mta2/modules/hostingservice/hinternals/hostingloader"
 	"mta2/modules/hostingservice/pkg/dataconfig"
+	"mta2/modules/natsmodule"
 
 	"net/http"
 	"time"
-
-	"github.com/nats-io/nats.go"
 )
 
 var counter int
@@ -21,7 +20,7 @@ const (
 )
 
 // Retrieve Hostnames handler return http handleFunc used to get inefficient hostnames having active no. of IP <= threshold value
-func RetrieveHostnames(nc *nats.Conn, maxIPs int, result dataconfig.HostingServiceHostMap) http.HandlerFunc {
+func RetrieveHostnames(nc natsmodule.NATSConnInterface, maxIPs int, result dataconfig.HostingServiceHostMap) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 
 		ctx, cancel := context.WithTimeout(r.Context(), dEFAULTCONTEXTTIMEOUT*time.Second)
