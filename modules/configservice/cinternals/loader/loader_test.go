@@ -20,7 +20,7 @@ func TestLoadConfigIPConfiguration(t *testing.T) {
 	mockIPList := ipconfig.NewIPConfigList()
 
 	t.Run("Test with valid JSON file path", func(t *testing.T) {
-		os.Setenv(constants.DBPATH, "/Users/b0268986/mta2/mock/test_data/ipconfig_test.json")
+		os.Setenv(constants.DBPATH, "/tmp/code/mta-hosting-optimizer/mock/test_data/ipconfig_test.json")
 		defer os.Unsetenv(constants.DBPATH)
 		err := LoadConfigIPConfiguration(mockConfig, mockIPList)
 		assert.NoError(t, err)
@@ -135,7 +135,7 @@ func TestTTLForFileSaving(t *testing.T) {
 	mockIPList_expected := ipconfig.NewIPConfigList()
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
-	os.Setenv(constants.DBPATH, "/Users/b0268986/mta2/mock/test_data/ipconfig_test.json")
+	os.Setenv(constants.DBPATH, "/tmp/code/mta-hosting-optimizer/mock/test_data/ipconfig_test.json")
 	defer os.Unsetenv(constants.DBPATH)
 	// Initialize a mock IPListI
 	mocklist := ipconfig.NewIPConfigList()
