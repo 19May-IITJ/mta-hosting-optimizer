@@ -66,7 +66,7 @@ func TestRefreshDataSet(t *testing.T) {
 	})
 	loader.Ticker = time.NewTicker(30 * time.Second)
 	natsConn := new(mocking.MockNATSConn)
-
+	assert.Equal(t, 30, TTL)
 	t.Run("Positive Test for Refersh Data Set", func(t *testing.T) {
 		payload := []*ipconfig.IPConfigData{&ipconfig.IPConfigData{
 
@@ -230,6 +230,37 @@ func TestRefreshDataSet(t *testing.T) {
 		handler := http.HandlerFunc(RefreshDataSet(mockmap, mocklist, natsConn))
 		handler.ServeHTTP(rr, req)
 		assert.Equal(t, rr.Code, http.StatusBadRequest)
+	})
+
+	t.Run("Invalid Method for Refersh Data Set", func(t *testing.T) {
+		payload := []*ipconfig.IPConfigData{&ipconfig.IPConfigData{
+
+			Hostname:    "dummy_2",
+			IPAddresses: "127.0.0.1",
+			Status:      true,
+		},
+		}
+		bodyBytes, _ := json.Marshal(payload)
+
+		req, err := http.NewRequest("GET", "/refresh", b.NewReader(bodyBytes))
+		if err != nil {
+			t.Fatal(err)
+		}
+		bytes, _ := json.Marshal(&utility.Message{
+			Hostname: "dummy_1",
+			Active:   1,
+		})
+		natsConn.On("Publish", constants.UPDATE_PUB_SUBJECT, bytes).Return(nil)
+
+		ctx, cancel := context.WithTimeout(req.Context(), 5*time.Second)
+		defer cancel()
+		req = req.WithContext(ctx)
+		rr := httptest.NewRecorder()
+		// os.Setenv(constants.DBPATH, "/Users/b0268986/mta2/mock/test_data/ipconfig_test.json")
+		// defer os.Unsetenv(constants.DBPATH)
+		handler := http.HandlerFunc(RefreshDataSet(mockmap, mocklist, natsConn))
+		handler.ServeHTTP(rr, req)
+		assert.Equal(t, rr.Code, http.StatusMethodNotAllowed)
 	})
 
 	t.Run("Given Hostname Not Present for Refersh Data Set", func(t *testing.T) {
