@@ -16,6 +16,7 @@ import (
 
 	"time"
 
+	"github.com/go-playground/validator/v10"
 	"golang.org/x/exp/slices"
 )
 
@@ -44,6 +45,16 @@ func RefreshDataSet(c ipconfig.ConfigServiceIPMap, ipl ipconfig.IPListI, nc nats
 		if err := json.Unmarshal(body, &requestBody); err != nil {
 			http.Error(w, "Error parsing JSON", http.StatusBadRequest)
 			return
+		}
+		validate := validator.New()
+		validate.RegisterValidation("string", ipconfig.IsString)
+		for i, ipConfig := range requestBody {
+			if err := validate.Struct(ipConfig); err != nil {
+				log.Printf("Validation error for element %d and value %v: %v\n", i, ipConfig, err)
+				http.Error(w, "Validation error for element", http.StatusBadRequest)
+				return
+			}
+
 		}
 
 		if len(requestBody) > 0 {
