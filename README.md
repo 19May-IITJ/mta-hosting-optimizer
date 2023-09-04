@@ -30,20 +30,23 @@ Config Service is an interface layer between the DB (currently a JSON File) and 
 
 ## Installation
 
-Clone the library in you local <br />
-Step 1:- setup NATS on your local or remote or via docker (docker pull nats)<br />
-Step 2:- set the env variable of the service you want to host/serve first
-for Hosting service MTA*THRESHOLD, NATS_URI*, HOSTINGSERVICE_PORT* need to be set (\* marked are compulsory env no default value)
-for Config Service NATS*URI*, CONFIGSERVICE_PORT*, DBPATH* needs to be set (There is a default value for DBPATH but only work once you set it in repo of your own and build the project)<br />
-Step 3:- There is a make file included in the project<br />
-run command on shell<br />
-make bin (for making binary name of binary is fixed - "mta")<br />
-make config<br />
-make hosting<br />
-(NOTE:- if you running multiple instance of hosting service then env of HOSTINGSERVICE_PORT need to be set differently for each instance if multiple instances are on same machine)
+Clone the repo and run docker compose up —build -d The docker compose available is for single instance of Hosting service and config service. You can now hit localhost:8010/hostnames for getting the servers names having MTA less than the threshold value set as an env variable in Dockerfile.hosting. You can change the value and re-run the docker compose command. Also the if you want then you can change the data / ip config by your self via calling the API Handle of config service at localhost:8020/refresh and passing the payload </br >
+    e.g:- 
+    [
+        {   
+         "ipAddresses": "127.0.0.1",
+         "hostname": "mta-prod-1",
+         "status": true
+        }
+    ].
+
+This will change IP config in local and same will be change in JSON file after 30 sec of API call provided no further request to change any other IP config data is not received in meantime. The project is a single repo multi module code base, both the micro service are design and developed in single repo.
+
+After analyzing the project please run
+    docker-compose down --rmi all
+No  te \*\* If you are working via docker compose then above details for build and installation are fine, for further understand please refer to design docs send over email.
 
 ## Usage
 
-    Please hit the localhost:8080 on your local for with endpoints /hostname -> for uncovering server's hostname
-    having MTAs hosted less than the threshold provided in env varibale MTA_THRESHOLD.
-    Also you can hit /refresh to refresh the data set.
+Please hit the localhost:8010/hostname on your local for uncovering server's hostname having MTAs hosted less than the threshold provided in env varibale MTA_THRESHOLD set in Dockerfile.hosting.
+Also you can hit /refresh to refresh the data set at endpoint localhost:8020/refersh with above demo payload to refersh data if need of any servers's mta IP.
