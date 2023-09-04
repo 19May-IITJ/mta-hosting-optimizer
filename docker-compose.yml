@@ -2,11 +2,20 @@ version: "3"
 services:
   nats:
     image: nats:2.9.21
+    restart: always
+    deploy:
+      replicas: 1
   configservice:
     build:
       context: .
       dockerfile: ./dockerfiles/Dockerfile.config
     image: configservice-app:1
+    restart: always
+    deploy:
+      replicas: 1
+    environment:
+      CONFIGSERVICE_PORT: "8020"
+      NATS_URI: "nats://nats:4222"
     depends_on:
       - nats
     ports:
@@ -16,8 +25,15 @@ services:
       context: .
       dockerfile: ./dockerfiles/Dockerfile.hosting
     image: hostingservice-app:1
+    restart: always
+    deploy:
+      replicas: 2
+    environment:
+      MTA_THRESHOLD: "10"
+      HOSTINGSERVICE_PORT: "8010"
+      NATS_URI: "nats://nats:4222"
     depends_on:
       - nats
       - configservice
     ports:
-      - "8010:8010"
+      - "8010-8011:8010"
