@@ -22,7 +22,7 @@ It have two services named as a hosting service and config service each having a
 
 ## Hosting Service
 
-Hosting service serves the /hostnames endpoint. It takes the threshold value (minimum number of active IPs on hostname) via a env variable MTA_THRESHOLD (default value is 1). Apart from that 2 env vairables also need to set which are NATS_URI for building connection with NATS server and HOSTINGSERVICE_PORT which is the port on which the service will service.
+Hosting service serves the /hostnames endpoint. It takes the threshold value (minimum number of active IPs on hostname) via a env variable MTA_THRESHOLD (default value is 10). Apart from that 2 env vairables also need to set which are NATS_URI for building connection with NATS server and HOSTINGSERVICE_PORT which is the port on which the service will service.
 
 ## Config Service
 
