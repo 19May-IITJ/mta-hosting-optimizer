@@ -30,7 +30,8 @@ Config Service is an interface layer between the DB (currently a JSON File) and 
 
 ## Installation
 
-Clone the repo and run docker compose up —build -d The docker compose available is for single instance of Hosting service and config service. You can now hit localhost:8010/hostnames for getting the servers names having MTA less than the threshold value set as an env variable in Dockerfile.hosting. You can change the value and re-run the docker compose command. Also the if you want then you can change the data / ip config by your self via calling the API Handle of config service at localhost:8020/refresh and passing the payload </br >
+Clone the repo and run "docker compose up —build -d". The docker compose available is for single instance of Hosting service and config service. You can now hit localhost:8010/hostnames for getting the servers names having MTA less than the threshold value set as an env variable in Dockerfile.hosting which is currently 10. You can change the value and re-run the docker compose command. </br > 
+Also if you want then you can change the data/ip config by your self via calling the API Handle of config service at localhost:8020/refresh and passing the payload </br >
     e.g:- 
     [
         {   
@@ -43,8 +44,8 @@ Clone the repo and run docker compose up —build -d The docker compose availabl
 This will change IP config in local and same will be change in JSON file after 30 sec of API call provided no further request to change any other IP config data is not received in meantime. The project is a single repo multi module code base, both the micro service are design and developed in single repo.
 
 After analyzing the project please run
-    docker-compose down --rmi all
-No  te \*\* If you are working via docker compose then above details for build and installation are fine, for further understand please refer to design docs send over email.
+    docker-compose down --rmi all </br >
+Note \*\* If you are working via docker compose then above details for build and installation are fine, for further understand please refer to design docs send over email.
 
 ## Usage
 
