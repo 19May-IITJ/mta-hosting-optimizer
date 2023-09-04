@@ -52,7 +52,7 @@ This will change IP config in local and same will be change in JSON file after 3
 
 After analyzing the project please run
 ```
-    docker-compose down --rmi all </br >
+    docker-compose down --rmi all
 ```
 Note \*\* If you are working via docker compose then above details for build and installation are fine, for further understand please refer to design docs send over email.
 
