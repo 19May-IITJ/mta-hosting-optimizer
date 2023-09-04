@@ -45,7 +45,7 @@ func configservice(a *appConfig) *cli.Command {
 			} else {
 				//Logger Block
 				log.Println("Unable to start Config Service")
-				log.Println("Please provide ENV Variables or check ./mta help configservice")
+				log.Fatalln("Please provide ENV Variables or check ./mta help configservice")
 				return errors.New("unable to start Config Service please provide ENV Variables")
 				//Logger Block
 			}
