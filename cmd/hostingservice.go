@@ -46,7 +46,7 @@ func hostingservice(a *appConfig) *cli.Command {
 			} else {
 				//Logger Block
 				log.Println("Unable to start Hosting Service")
-				log.Println("Please provide ENV Variables or check ./mta help hosting service")
+				log.Fatalln("Please provide ENV Variables or check ./mta help hosting service")
 				return errors.New("unable to start Hosting Service please provide ENV Variables")
 				//Logger Block
 			}
