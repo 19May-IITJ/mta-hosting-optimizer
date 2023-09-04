@@ -5,7 +5,7 @@ services:
   configservice:
     build:
       context: .
-      dockerfile: ./Dockerfile.config
+      dockerfile: ./dockerfiles/Dockerfile.config
     image: configservice-app:1
     depends_on:
       - nats
@@ -14,7 +14,7 @@ services:
   hostingservice:
     build:
       context: .
-      dockerfile: ./Dockerfile.hosting
+      dockerfile: ./dockerfiles/Dockerfile.hosting
     image: hostingservice-app:1
     depends_on:
       - nats
