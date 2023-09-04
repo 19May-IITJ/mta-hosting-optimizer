@@ -69,7 +69,6 @@ func TestRefreshDataSet(t *testing.T) {
 	assert.Equal(t, 30, TTL)
 	t.Run("Positive Test for Refersh Data Set", func(t *testing.T) {
 		payload := []*ipconfig.IPConfigData{&ipconfig.IPConfigData{
-
 			Hostname:    "dummy_1",
 			IPAddresses: "127.0.0.1",
 			Status:      false,
@@ -261,6 +260,31 @@ func TestRefreshDataSet(t *testing.T) {
 			Hostname:    "dummy_6",
 			IPAddresses: "127.0.0.1",
 			Status:      true,
+		},
+		}
+		bodyBytes, _ := json.Marshal(payload)
+
+		req, err := http.NewRequest("POST", "/refresh", b.NewReader(bodyBytes))
+		if err != nil {
+			t.Fatal(err)
+		}
+		bytes, _ := json.Marshal(&utility.Message{
+			Hostname: "dummy_1",
+			Active:   1,
+		})
+		natsConn.On("Publish", constants.UPDATE_PUB_SUBJECT, bytes).Return(nil)
+
+		ctx, cancel := context.WithTimeout(req.Context(), 5*time.Second)
+		defer cancel()
+		req = req.WithContext(ctx)
+		rr := httptest.NewRecorder()
+		handler := http.HandlerFunc(RefreshDataSet(mockmap, mocklist, natsConn))
+		handler.ServeHTTP(rr, req)
+		assert.Equal(t, rr.Code, http.StatusBadRequest)
+	})
+	t.Run("Invalid Payload for Refersh Data Set", func(t *testing.T) {
+		payload := []*ipconfig.IPConfigData{&ipconfig.IPConfigData{
+			Status: true,
 		},
 		}
 		bodyBytes, _ := json.Marshal(payload)
