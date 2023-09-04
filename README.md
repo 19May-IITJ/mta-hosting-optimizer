@@ -34,7 +34,7 @@ Clone the repo and run
 ```
 docker compose up —build -d
 ```
-The docker compose available is for single instance of Hosting service and config service. You can now hit **http://127.0.0.1:8010/hostnames** for getting the servers names having MTA less than the threshold value set as an env variable in **Dockerfile.hosting** which is currently 10. You can change the value and re-run the docker compose command. </br > 
+The docker compose available is for two instance of Hosting service and config service. You can now hit **http://127.0.0.1:8010/hostnames** and **http://127.0.0.1:8011/hostnames** for getting the servers names having MTA less than the threshold value set as an env variable in **Dockerfile.hosting** which is currently 10 on both the instances. You can change the value and re-run the docker compose command. </br > 
 Also if you want then you can change the data/ip config by your self via calling the API Handle of config service at **http://127.0.0.1:8020/refresh** and passing the payload </br >
     e.g:-
 
